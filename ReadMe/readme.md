@@ -5,11 +5,6 @@ date: 'March 20, 2016'
 title: Reading Notes
 ...
 
-# ReadingNotes
-
-This is a collection of my book reading notes. Notes while reading thesis/review might also be included.
-
-
 In progress: {#sec:in_progress_ .unnumbered}
 ============
 
