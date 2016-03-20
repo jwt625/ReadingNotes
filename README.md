@@ -10,7 +10,7 @@ title: Reading Notes
 This is a collection of my book reading notes. Notes while reading thesis/review might also be included.
 
 
-In progress: {#sec:in_progress_ .unnumbered}
+In progress:
 ============
 
 -   David Isaac Schuster, Circuit Quantum Electrodynamics
@@ -21,7 +21,7 @@ In progress: {#sec:in_progress_ .unnumbered}
 
 -   Michael Tinkham, Introduction to Superconductivity
 
-Planned: {#sec:planned_}
+Planned:
 ========
 
 -   David M. Pozar Microwave Engineering
