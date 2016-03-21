@@ -6,3 +6,9 @@
 *.out
 
 *.gz
+
+*.bbl
+
+*.toc
+
+*.blg

@@ -1,0 +1,136 @@
+%!TEX program = xelatex
+%!TEX builder = latexmk
+% or can be latexmk texify
+%!TEX option = 
+% -shell-escape -8bit % For minted package
+%!TEX root = ...
+\documentclass[8pt,a4paper,twocolumn]{article} % titlepage表示标题单独页
+\usepackage[noindent]{ctex} % ctex套用英文标题格式 (建议在英文论文混排中文时使用) ,
+% ctexcap套用中文格式 (等同于\documentclass{ctexart}) 
+% \renewcommand{\figurename}{图}
+% \renewcommand{\tablename}{表}
+% \renewcommand{\contentsname}{目录}
+% \renewcommand\refname{参考文献}
+% \renewcommand{\thefigure}{\chinese{figure}} % 将图片计数改为汉字数字
+% \renewcommand{\thetable}{\chinese{table}} % 将表格计数改为汉字数字
+\usepackage[top=0.75in,bottom=0.75in,left=0.75in,right=0.75in]{geometry} % 页边距设置
+% \usepackage{multicol}页面内多行包
+\usepackage[CJKbookmarks]{hyperref} % 给pdf文档添加互动式链接和书签
+\hypersetup{linktocpage=true}%make the link of the content on the number of page
+% \userpackage{wrapfig} % 图文绕排
+% \usepackage{xeCJK} % to get my Chinese name
+% \setCJKmainfont{SimSun}
+% \usepackage[parfill]{parskip} % 增加段间行距
+\usepackage{amsmath,amssymb,esint} % 数学公式类宏包；最末为积分符号拓展
+\allowdisplaybreaks[0]% 允许多行公式间换页, 用//*表示不允许换页
+\numberwithin{equation}{section} % 公式编号包含章节
+\usepackage{bm} % 加粗 (用于vector) 
+\usepackage{mathrsfs} % mathscr font
+% \usepackage{textcomp} % 符号包, 不能用于数学模式, 建议不要和SIunits混用
+% \usepackage[squaren]{SIunits} % 科学单位包, 可以用于数学模式
+% (为了统一不要和textcomp混用) , squaren选项消除和amssymb的冲突
+\usepackage{siunitx} % 淘汰掉上面这个宏包吧, 现在用的是
+% \num{123}, \si{kg.m/s^2}, 
+% \si{\electronvolt\per\square\clight}, \SI{123}{\micro\metre}
+\usepackage{extarrows} % 长箭头, 长等号etc.
+\usepackage{graphicx} % 插图宏包
+% \usepackage{picinpar} % 图文绕排
+\usepackage{array} % 表格宏包
+% \usepackage{longtable} % 长表格宏包
+\usepackage{multirow} % 多行合并的表格宏包
+% \usepackage{booktabs} % 表格线宏包
+\usepackage{braket} % 狄拉克符号
+
+% \usepackage[basic,box,gate,oldgate,ic,optics,physics]{circ} % 电路图宏包
+% \usepackage[normalem]{ulem} % 下划线, 删除线等宏包, 参数表示不修改\emph{}格式
+% \usepackage{mychemistry} % 化学宏包, 包含mhchem和chemfig
+% \usepackage[version=3]{mhchem} % 化学宏包, 包含mhchem和chemfig
+% \usepackage[symbol]{footmisc} % 脚注拓展, 选项表示用符号做脚注记号
+% \usepackage{listings} % 代码段宏包
+% \lstset{numbers=left,frame=shadowbox,%
+% basicstyle=\ttfamily, commentstyle=\fontseries{lc}\selectfont\itshape, %
+% columns=fullflexible, breaklines=true, escapeinside={(*@}{@*)}}
+% \usepackage{minted} % 具有 Python 支持的代码宏包
+
+% \renewcommand*{\vec}[1]{\bm{#1}} % 矢量的格式, 这里是加粗
+\newcommand{\dif}{\,\mathrm d}
+\newcommand\mi{\mathrm{i}}
+\newcommand\e{\mathrm{e}} % 定义数学模式中常用的正体字符
+\newcommand\Y{\mathrm{Y}}
+\newcommand\cc{\mathrm{c.c.}}
+\DeclareMathOperator{\Imag}{Im}
+\bibliographystyle{unsrt}
+
+\begin{document}\small
+	\title{Circuit Quantum Electrodynamics}
+	\author{Wentao Jiang}
+	\date{}
+	\maketitle
+	\tableofcontents
+	\section{Introduction} % (fold)
+	\label{sec:introduction}
+		Requirements of a quantum computer:
+		\begin{enumerate}
+    		\setlength{\itemsep}{1pt}
+    		\setlength{\parsep}{1pt}
+    		\setlength{\parskip}{1pt}
+			\item isolated from sources of noise
+			\item strongly coupled to each other
+			\item refer to \cite{DiVincenzo2000} for more and detailed requirements
+		\end{enumerate}
+		Cavity QED system: an atom modeled as a two-level system coupled to a harmonic osccillator, whose excitations are photons.
+
+		cQED-like systems: 
+		\begin{itemize}
+			\item alkali atoms above an optical cavity formed by two mirrors, readout by transmission of a laser through the cavity
+			\item Rydberg atoms with 3-D microwave cavities, require cooling to $\sim$1K, use atoms to probe the cavity photons by selective ionization
+		\end{itemize}
+
+		\subsection{Quantum Circuits} % (fold)
+		\label{sub:quantum_circuits}
+			the only known dissipationless non-linear circuit element
+
+			High frequencies (GHz) LC circuit at low temperatures (<100mK) will have resolvable energy levels corresponding to microwave photons. However, its harmonicity makes it impossible to observe the discrete nature of these photons.
+
+			Josephson junction, cooper pair box (CPB): enhance nonlinearity
+
+			Atoms: quantum purity for $10^{14}$ periods, hard to tune
+
+			Artificial atoms (quantum dots, CPB): more tunable, more decoherence
+		% subsection quantum_circuits (end)
+
+		\subsection{Circuit Quantum Electrodynamics} % (fold)
+		\label{sub:circuit_quantum_electrodynamics}
+			Superconductive circuits $\Longleftrightarrow $ artificial atoms
+
+			Key to cQED readout: use 1-D coplanar waveguide (CPW) resonator as a cavity
+
+			Benefits:
+			\begin{itemize}
+				\item travel length of MW photon in CPW: 10km
+				\item stronger coupling (10000 times larger than ordinary alkali atom, 10 times larger than Rydberg atom)
+				\item 1-D transmission line cavity increasing the energy density by $10^6$ over 3-D MW cavities, further increase dipole coupling by 1000
+			\end{itemize}
+
+		% subsection circuit_quantum_electrodynamics (end)
+
+	% section introduction (end)
+
+	\section{Cavity Quantum Electrodynamics} % (fold)
+	\label{sec:cavity_quantum_electrodynamics}
+		Jaynes-Cummings Hamiltonian:
+		\begin{equation}
+			H_{\text{JC}} = \hbar \omega_r (a^{\dagger}a+1/2)+ \hbar \frac{\omega_a}{2} \sigma_z + \hbar g ( a^{\dagger} \sigma^- + a \sigma^+ )
+		\end{equation}
+
+		$\kappa $: photon decay rate
+
+		$ Q=\omega_r/\kappa $: quality factor
+
+		$ \gamma_{\perp} $: atom decay rate
+
+		$T_{\text{transit}}$: atom transit time before leaving cavity
+	% section cavity_quantum_electrodynamics (end)
+
+	\bibliography{CQED}
+\end{document}
