@@ -1,0 +1,203 @@
+%!TEX program = xelatex
+%!TEX builder = latexmk
+% or can be latexmk texify
+%!TEX option = 
+% -shell-escape -8bit % For minted package
+%!TEX root = ...
+\documentclass[8pt,a4paper,twocolumn]{article} % titlepage表示标题单独页
+\usepackage[noindent]{ctex} % ctex套用英文标题格式 (建议在英文论文混排中文时使用) ,
+% ctexcap套用中文格式 (等同于\documentclass{ctexart}) 
+% \renewcommand{\figurename}{图}
+% \renewcommand{\tablename}{表}
+% \renewcommand{\contentsname}{目录}
+% \renewcommand\refname{参考文献}
+% \renewcommand{\thefigure}{\chinese{figure}} % 将图片计数改为汉字数字
+% \renewcommand{\thetable}{\chinese{table}} % 将表格计数改为汉字数字
+\usepackage[top=0.75in,bottom=0.75in,left=0.75in,right=0.75in]{geometry} % 页边距设置
+% \usepackage{multicol}页面内多行包
+\usepackage[CJKbookmarks]{hyperref} % 给pdf文档添加互动式链接和书签
+\hypersetup{linktocpage=true}%make the link of the content on the number of page
+% \userpackage{wrapfig} % 图文绕排
+% \usepackage{xeCJK} % to get my Chinese name
+% \setCJKmainfont{SimSun}
+% \usepackage[parfill]{parskip} % 增加段间行距
+\usepackage{amsmath,amssymb,esint} % 数学公式类宏包；最末为积分符号拓展
+\allowdisplaybreaks[0]% 允许多行公式间换页, 用//*表示不允许换页
+\numberwithin{equation}{section} % 公式编号包含章节
+\usepackage{bm} % 加粗 (用于vector) 
+\usepackage{mathrsfs} % mathscr font
+% \usepackage{textcomp} % 符号包, 不能用于数学模式, 建议不要和SIunits混用
+% \usepackage[squaren]{SIunits} % 科学单位包, 可以用于数学模式
+% (为了统一不要和textcomp混用) , squaren选项消除和amssymb的冲突
+\usepackage{siunitx} % 淘汰掉上面这个宏包吧, 现在用的是
+% \num{123}, \si{kg.m/s^2}, 
+% \si{\electronvolt\per\square\clight}, \SI{123}{\micro\metre}
+\usepackage{extarrows} % 长箭头, 长等号etc.
+\usepackage{graphicx} % 插图宏包
+% \usepackage{picinpar} % 图文绕排
+\usepackage{array} % 表格宏包
+% \usepackage{longtable} % 长表格宏包
+\usepackage{multirow} % 多行合并的表格宏包
+% \usepackage{booktabs} % 表格线宏包
+\usepackage{braket} % 狄拉克符号
+
+% \usepackage[basic,box,gate,oldgate,ic,optics,physics]{circ} % 电路图宏包
+% \usepackage[normalem]{ulem} % 下划线, 删除线等宏包, 参数表示不修改\emph{}格式
+% \usepackage{mychemistry} % 化学宏包, 包含mhchem和chemfig
+% \usepackage[version=3]{mhchem} % 化学宏包, 包含mhchem和chemfig
+% \usepackage[symbol]{footmisc} % 脚注拓展, 选项表示用符号做脚注记号
+% \usepackage{listings} % 代码段宏包
+% \lstset{numbers=left,frame=shadowbox,%
+% basicstyle=\ttfamily, commentstyle=\fontseries{lc}\selectfont\itshape, %
+% columns=fullflexible, breaklines=true, escapeinside={(*@}{@*)}}
+% \usepackage{minted} % 具有 Python 支持的代码宏包
+
+% \renewcommand*{\vec}[1]{\bm{#1}} % 矢量的格式, 这里是加粗
+\newcommand{\dif}{\,\mathrm d}
+\newcommand\mi{\mathrm{i}}
+\newcommand\e{\mathrm{e}} % 定义数学模式中常用的正体字符
+\newcommand\Y{\mathrm{Y}}
+\newcommand\cc{\mathrm{c.c.}}
+\DeclareMathOperator{\Imag}{Im}
+\bibliographystyle{unsrt}
+
+\begin{document}\small
+	\title{Introduction to Superconductivity}
+	\author{Wentao Jiang}
+	\date{}
+	\maketitle
+	\tableofcontents
+
+	\section{Historical overview} % (fold)
+	\label{sec:historical_overview}
+		\subsection{The Basic Phenomena} % (fold)
+		\label{sub:the_basic_phenomena}
+			\begin{itemize}
+				\item perfect conductivity
+				\item perfect diamagnetism, $H_c(T) \approx H_c(0)\left[ 1-(T/T_c)^2 \right]$
+			\end{itemize}
+
+		% subsection the_basic_phenomena (end)
+
+		\subsection{The London Equations} % (fold)
+		\label{sub:the_london_equations}
+			\begin{align}
+				&\bm E = \frac{\partial}{\partial t}( \Lambda \bm J_S )\\
+				&\bm h = -c \nabla\times (\Lambda \bm J_S)\\
+				&\Lambda = \frac{4 \pi \lambda^2}{c^2}=\frac{m}{n_S e^2}
+			\end{align}
+
+			$\bm h$: microscopic flux density
+
+			$\bm B$: macroscopic average value
+
+			$n_S$: number density of superconducting electrons
+
+			Combining Maxwell equation $ \nabla\times \bm h=4 \pi \bm J/c$ leads to $\nabla^2 \bm h = h/\lambda^2$, predicting penetration depth $ \lambda $. Emprically:
+			\begin{equation}
+				\lambda(T)\approx \lambda(0)\left[ 1-(T/T_c)^4 \right]^{-1/2}
+			\end{equation}
+
+			Consider a perfect normal conductor in a uniform $\bm E$ field, $d(m\bm v)/dt = e\bm E,\bm J=ne\bm v$. But it's not rigorous for spacially nonuniform fields within $\lambda$, for which the LEs are most useful. It's because the response of an electron gas to $\bm E$ field is nonlocal.
+
+			A more profound motivation for LEs is a quantum one by considering $\bm p = (m \bm v+e \bm A/c)$ to have zero expectancy for ground state, i.e.,
+			\begin{align}
+				&\left< \bm v_S \right>=\frac{-e \bm A}{mc}\\
+				&\bm J_S = n_S e\left< \bm v_S \right>=\frac{-\bm A}{\Lambda c}
+			\end{align}
+			which contains the two LEs in a compact form (it's not gauge-invariant, London gauge $ \nabla\cdot\bm A=0 $ is required).
+		% subsection the_london_equations (end)
+
+		\subsection{The Pippard Nonlocal Electrodynamics} % (fold)
+		\label{sub:the_pipard_nonlocal_electrodynamics}
+			Introduce the coherence length $ \xi $ to propose a nonlocal generalization of the LEs, in analogy to Chamber's nonlocal generalization of Ohm's law:
+			\begin{equation*}
+				\bm J(\bm r)=\frac{3 \sigma}{4 \pi l}\int \frac{\bm R[\bm R\cdot \bm E (\bm r')] e^{-R/l}}{R^4}d\bm r'
+			\end{equation*}
+
+			From uncertainty principle, for electrons play a major role in superconductive phenomenon, $E\sim kT_c, \Delta p\approx kT_c/v_F$, thus
+			\begin{equation}
+				\xi_0 = a \frac{\hbar v_F}{kT_c}
+			\end{equation}
+			hence
+			\begin{equation}
+				\bm J_S(\bm r)=-\frac{3 }{4 \pi \xi_0 \Lambda c}\int \frac{\bm R[\bm R\cdot \bm A (\bm r')] e^{-R/\xi}}{R^4}d\bm r'
+			\end{equation}
+			instead of $ \bm J_S = n_S e\left< \bm v_S \right>=\frac{-\bm A}{\Lambda c} $, where $ 1/\xi = 1/\xi_0 + 1/l $.
+		% subsection the_pipard_nonlocal_electrodynamics (end)
+
+		\subsection{The Energy Gap and the BCS Theory} % (fold)
+		\label{sub:the_energy_gap_and_the_bcs_theory}
+			Experimental hints:
+
+			Electronic specific heat: $C_{es}\approx \gamma T_c a e^{-bT_c/T} $, while normal state $C_{en}=\gamma T $
+
+			Spectroscopic measurement gives minimum energy $E_g$ to create excitations, while thermal one measures $E_g/2$ per statistically independent particle, suggesting pair production.
+
+			Key prediction of BCS: $E_g(0) = 2 \Delta(0) =3.528kT_c $ for $T\ll T_c$.
+
+		% subsection the_energy_gap_and_the_bcs_theory (end)
+
+		\subsection{The Ginzburg-Landau Theory} % (fold)
+		\label{sub:the_ginzburg_landau_theory}
+			7 years before BCS, they introduce a complex pseudowavefunction as an order parameter within Landau's general theory of 2nd order phase transitions. Eqt for $\psi$ are obtained from a variational principle and expansion of the free energy in powers of $\psi$ and $\nabla \psi$ with coefficients $\alpha$ and $\beta$:
+			\begin{align}
+				&n_S = \left| \psi(x) \right|^2\\
+				&\frac{1}{2m^*}\left( \frac{\hbar}{i}\nabla -\frac{e^*}{c}A \right)^2 \psi+\beta|\psi|^2 \psi=-\alpha(T) \psi\\
+				&\bm J_S =\frac{e^* \hbar}{i2m^*}(\psi^* \nabla \psi -\psi \nabla \psi^*)-\frac{{e^*}^2}{m^*c}|\psi|^2\bm A
+			\end{align}
+
+			GL coherence length: $\xi(T)=\frac{\hbar}{|2m^* \alpha(T) |^{1/2}} $
+
+			GL parameter: $ \kappa = \frac{\lambda}{\xi} $
+
+		% subsection the_ginzburg_landau_theory (end)
+
+		\subsection{Type II Superconductors} % (fold)
+		\label{sub:type_ii_superconductors}
+			$\xi<\lambda$ leads to a negative surface energy, so that subdivision proceeds until limited by the microscopic length $\xi$.
+
+			Another result: mixed state, or Schubnikov phase. Between $H_{c1}$ and $ H_{c2} $, the flux penetrates in a regular array of flux tubes carrying flux of
+			\begin{equation}
+				\Phi_0=\frac{hc}{2e}=2.07\times10^{-7}G/cm^2
+			\end{equation}
+		% subsection type_ii_superconductors (end)
+
+		\subsection{Josephson Tunneling and Flux Quantization} % (fold)
+		\label{sub:josephson_tunneling_and_flux_quantization}
+			Phase and particle number are conjugate variables:
+			\begin{equation}
+				\Delta N \Delta \phi \gtrsim 1
+			\end{equation}
+
+			Josephson predicted pairs should be able to tunnel between two superconductor even at zero voltage difference:
+			\begin{equation}
+				J=J_c \sin (\phi_1- \phi_2)
+			\end{equation}
+			and with a voltage difference $V_{12}$, the phase difference $\phi = 2eV_{12}t/\hbar $ so that the current would oscillate.
+
+			Single-valuedness of $\psi = |\psi| e^{i \phi} $ requires that the fluxoid introduced by F. London:
+			\begin{equation}
+				\Phi'=\Phi+\frac{m^* c}{e^*} \oint \frac{\bm J_S \cdot d \bm s}{|\psi|^2}
+			\end{equation}
+			to take only integral multiples of $\Phi_0 = hc/2e $, where $\Phi = \oint \bm A\cdot d\bm s$ is the ordinary magnetic flux. For ring with thickness comparable to $\lambda$, $J_S=0$ on the integration path, $\Phi=\Phi'=n \Phi_0$.
+		% subsection josephson_tunneling_and_flux_quantization (end)
+
+		\subsection{Fluctuation and Nonequilibrium Effects} % (fold)
+		\label{sub:fluctuation_and_nonequilibrium_effects}
+			
+		% subsection fluctuation_and_nonequilibrium_effects (end)
+
+		\subsection{High-temperature Superconductivity} % (fold)
+		\label{sub:high_temperature_superconductivity}
+		
+		% subsection high_temperature_superconductivity (end)
+
+	% section historical_overview (end)
+
+	\section{Introduction to Electrodynamics of Superconductivity} % (fold)
+	\label{sec:intro_to_electrodynamics_of_superconductivity}
+	
+	% section intro_to_electrodynamics_of_superconductivity (end)
+
+\end{document}
