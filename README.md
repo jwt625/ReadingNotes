@@ -18,7 +18,7 @@ In progress:
 * Solid State Physics:
   * Charles Kittel, Introduction to Solid State Physics
   * Neil W. Ashcroft & N. David Mermin, Solid State Physics
-* Kelly, J. S. (2015). "Fault-tolerant superconducting qubits." 
+* Kelly, J. S. (2015). Fault-tolerant superconducting qubits.
 
 Planned:
 --------
