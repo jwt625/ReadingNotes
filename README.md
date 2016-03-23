@@ -15,6 +15,9 @@ In progress:
 * Michael Tinkham, Introduction to Superconductivity
 * Schuster, D. I. (2007). Circuit quantum electrodynamics.
 * Aspelmeyer, M., et al. (2014). "Cavity optomechanics." Reviews of Modern Physics 86(4): 1391-1452.
+* Solid State Physics:
+  * Charles Kittel, Introduction to Solid State Physics
+  * Neil W. Ashcroft & N. David Mermin, Solid State Physics
 
 Planned:
 --------
