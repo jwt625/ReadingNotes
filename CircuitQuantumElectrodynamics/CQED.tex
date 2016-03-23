@@ -123,6 +123,8 @@
 			H_{\text{JC}} = \hbar \omega_r (a^{\dagger}a+1/2)+ \hbar \frac{\omega_a}{2} \sigma_z + \hbar g ( a^{\dagger} \sigma^- + a \sigma^+ )
 		\end{equation}
 
+		$g $: coupling rate
+
 		$\kappa $: photon decay rate
 
 		$ Q=\omega_r/\kappa $: quality factor
@@ -130,6 +132,106 @@
 		$ \gamma_{\perp} $: atom decay rate
 
 		$T_{\text{transit}}$: atom transit time before leaving cavity
+
+		When the atom is resonant with the cavity, the two system can freely exchange energy. When many oscillations can be completed before the atom decays, it's called the \textbf{strong coupling} limit: $g>\gamma,\kappa,1/T_{\text{transit}} $.
+
+		\begin{figure}[!h]
+			\centering
+			%width can be changed
+			\includegraphics[width=3in]{JClevels.png}
+			\caption{Energy level diagram of the J-C Hamiltonian. \cite{Schuster2007}}
+			\label{pic:EnLevelOfJCH}
+		\end{figure}
+
+		Eigenstates: $ \ket{\psi_{\pm} } = ( \ket g \ket n \pm \ket e \ket{n-1} )/\sqrt 2 $, split by $2g\sqrt n$, i.e., anharmonic even for single photon in the strong coupling limit.
+
+		Because excitations are equally shared between atoms and the cavity, they decay at $\Gamma_{\text{eff} }=(\gamma_{\perp}+\kappa)/2 $
+
+		Purcell effect(?)
+
+		\subsection{Dispersive Limit} % (fold)
+		\label{sub:dispersive_limit}
+			Resonant limit: $\Delta=\omega_a- \omega_r \ll g $\\
+			Dispersive limit: $\Delta\gg g$\\
+			Using perturbation to the interaction part and expand in powers of $g/\Delta $ to second order:
+			\begin{equation}
+				H\approx \hbar \left( \omega_r +\frac{g^2}{\Delta} \sigma_z \right) (a^{\dagger}a+1/2)+\hbar \omega_a \sigma_z /2
+			\end{equation}
+			The interaction is through the dispersive shift term proportional to $g^2/\Delta$, which commutes with the rest of the Hamiltonian, conserves both the photon number and the atom state.
+
+			Result: the effective frequency of the cavity $ \omega_r'=\omega_r\pm g^2/\Delta $ depends on the state of the atom.
+
+			Rewrite the Hamiltonian to
+			\begin{equation}
+				H\approx \hbar(a^{\dagger}a+1/2) +\frac{\hbar}{2} \left( \omega_a +\frac{2g^2}{\Delta}a^{\dagger}a + \frac{g^2}{\Delta}\right) \sigma_z /2
+			\end{equation}
+
+			Result: the interaction gives the atom frequency a ``light'' shift consisting of a photon number-dependent ``Stark'' shift $ 2ng^2/\Delta $ and vacuum noise induced ``Lamb'' shift $g^2/\Delta $
+
+			Accurate general solution:
+			\begin{align}
+				&E_{\pm,n}=\hbar \omega_r\pm \frac{\hbar}{2} \sqrt{4ng^2+\Delta^2}\\
+				&E_{g,0}=-\frac{\hbar \Delta}{2}
+			\end{align}
+			where $n$ is the total number of excitations, \textbf{not} the number of photons and $\pm$ refer to the higher energy or lower energy state in the $n$ excitation manifold, \textbf{not} the atom state.
+
+			Eigenstates:
+			\begin{align}
+				& \ket{-,n} = \cos \theta_n \ket{g,n} -\sin \theta_n \ket{e,n-1}\\
+				& \ket{+,n} = \sin \theta_n \ket{g,n} + \cos \theta_n \ket{e,n-1}\\
+				& \theta_n = \frac{1}{2} \arctan \left( \frac{2g\sqrt n}{\Delta} \right)
+			\end{align}
+
+			When dispersive limit is reached:
+			\begin{align}
+				& \ket{-,n} =  \ket{g,n} -\frac{g\sqrt n}{\Delta}  \ket{e,n-1}\\
+				& \ket{+,n} = \frac{g\sqrt n}{\Delta}  \ket{g,n} +   \ket{e,n-1}
+			\end{align}
+			i.e., qubit states have some photon component, which can be used to create an ``entanglement'' bus when multiple qubits are strongly coupled to the same cavity with overlapping photonic part of their wavefunctions.
+
+			Instead of $\Gamma_{\text{eff} }=(\gamma_{\perp}+\kappa)/2 $ as in resonant limit, the qubit has some probability to decay as a photon at a rate $ \gamma_{\kappa} $, because it has a photonic aspect, and vice versa photons can be emitted by the qubit into non-radiative modes at a rate $\kappa_{\gamma} $:
+			\begin{align}
+				&\gamma_{\kappa}\approx \left( \frac{g}{\Delta} \right)^2 \kappa\\
+				&\kappa_{\gamma}\approx \left( \frac{g}{\Delta} \right)^2 \gamma
+			\end{align}
+
+			The non-radiative ssource of decay $\gamma_{\perp}$ will begin to dominate before the limit set by suppressed radiative decay.
+
+		% subsection dispersive_limit (end)
+
+		\subsection{Strong Dispersive Interactions} % (fold)
+		\label{sub:strong_dispersive_interactions}
+			Dispersive regime: $\Delta\gg g$\\
+			Strong dispersive regime: $\Delta\gg g$, $\chi = g^2/\Delta > \gamma, \kappa$\\
+			i.e., the qubit spectrum resolves into individual photon number peaks, Cavity shift is also larger than cavity linewidth.
+
+			For measuring the state of a single atom using the cavity, one can use many photons to realize it for $\chi<\kappa$. For single photon precision, dispersive strong coupling is required.
+
+			\begin{figure}[!h]
+				\centering
+				%width can be changed
+				\includegraphics[width=3in]{cQEDphase.png}
+				\caption{A phase diagram for cavity QED, described by the atom-photon coupling strength $g$ and the detuning $\Delta$, normalized to the rates of decay $\Gamma = \max[ \gamma,\kappa,1/T ]. $\cite{Schuster2007}}
+				\label{pic:EnLevelOfJCH}
+			\end{figure}
+
+			\begin{figure}[!h]
+				\centering
+				%width can be changed
+				\includegraphics[width=3in]{spectrumInSDlimit.png}
+				\caption{Spectrum of coupled cavity and atom system in strong dispersive limit. \cite{Schuster2007}}
+				\label{pic:EnLevelOfJCH}
+			\end{figure}
+
+			If $\chi>\gamma$ is reached, the atom is shifted by more than a linewidth for each photon, making it possible to measure the exact photon number distribution. A CNOT gate can also be realized if the qubit is made only to respond when a single photon is present.
+
+
+
+
+
+		% subsection strong_dispersive_interactions (end)
+
+
 	% section cavity_quantum_electrodynamics (end)
 
 	\bibliography{CQED}
