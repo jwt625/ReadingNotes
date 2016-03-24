@@ -82,16 +82,16 @@
 		\subsection{The London Equations} % (fold)
 		\label{sub:the_london_equations}
 			\begin{align}
-				&\bm E = \frac{\partial}{\partial t}( \Lambda \bm J_S )\\
-				&\bm h = -c \nabla\times (\Lambda \bm J_S)\\
-				&\Lambda = \frac{4 \pi \lambda^2}{c^2}=\frac{m}{n_S e^2}
+				&\bm E = \frac{\partial}{\partial t}( \Lambda \bm J_s )\\
+				&\bm h = -c \nabla\times (\Lambda \bm J_s)\\
+				&\Lambda = \frac{4 \pi \lambda^2}{c^2}=\frac{m}{n_s e^2}
 			\end{align}
 
 			$\bm h$: microscopic flux density
 
 			$\bm B$: macroscopic average value
 
-			$n_S$: number density of superconducting electrons
+			$n_s$: number density of superconducting electrons
 
 			Combining Maxwell equation $ \nabla\times \bm h=4 \pi \bm J/c$ leads to $\nabla^2 \bm h = h/\lambda^2$, predicting penetration depth $ \lambda $. Emprically:
 			\begin{equation}
@@ -102,8 +102,8 @@
 
 			A more profound motivation for LEs is a quantum one by considering $\bm p = (m \bm v+e \bm A/c)$ to have zero expectancy for ground state, i.e.,
 			\begin{align}
-				&\left< \bm v_S \right>=\frac{-e \bm A}{mc}\\
-				&\bm J_S = n_S e\left< \bm v_S \right>=\frac{-\bm A}{\Lambda c}
+				&\left< \bm v_s \right>=\frac{-e \bm A}{mc}\\
+				&\bm J_s = n_s e\left< \bm v_s \right>=\frac{-\bm A}{\Lambda c}
 			\end{align}
 			which contains the two LEs in a compact form (it's not gauge-invariant, London gauge $ \nabla\cdot\bm A=0 $ is required).
 		% subsection the_london_equations (end)
@@ -121,9 +121,9 @@
 			\end{equation}
 			hence
 			\begin{equation}
-				\bm J_S(\bm r)=-\frac{3 }{4 \pi \xi_0 \Lambda c}\int \frac{\bm R[\bm R\cdot \bm A (\bm r')] e^{-R/\xi}}{R^4}d\bm r'
+				\bm J_s(\bm r)=-\frac{3 }{4 \pi \xi_0 \Lambda c}\int \frac{\bm R[\bm R\cdot \bm A (\bm r')] e^{-R/\xi}}{R^4}d\bm r'
 			\end{equation}
-			instead of $ \bm J_S = n_S e\left< \bm v_S \right>=\frac{-\bm A}{\Lambda c} $, where $ 1/\xi = 1/\xi_0 + 1/l $.
+			instead of $ \bm J_s = n_s e\left< \bm v_s \right>=\frac{-\bm A}{\Lambda c} $, where $ 1/\xi = 1/\xi_0 + 1/l $.
 		% subsection the_pipard_nonlocal_electrodynamics (end)
 
 		\subsection{The Energy Gap and the BCS Theory} % (fold)
@@ -142,9 +142,9 @@
 		\label{sub:the_ginzburg_landau_theory}
 			7 years before BCS, they introduce a complex pseudowavefunction as an order parameter within Landau's general theory of 2nd order phase transitions. Eqt for $\psi$ are obtained from a variational principle and expansion of the free energy in powers of $\psi$ and $\nabla \psi$ with coefficients $\alpha$ and $\beta$:
 			\begin{align}
-				&n_S = \left| \psi(x) \right|^2\\
+				&n_s = \left| \psi(x) \right|^2\\
 				&\frac{1}{2m^*}\left( \frac{\hbar}{i}\nabla -\frac{e^*}{c}A \right)^2 \psi+\beta|\psi|^2 \psi=-\alpha(T) \psi\\
-				&\bm J_S =\frac{e^* \hbar}{i2m^*}(\psi^* \nabla \psi -\psi \nabla \psi^*)-\frac{{e^*}^2}{m^*c}|\psi|^2\bm A
+				&\bm J_s =\frac{e^* \hbar}{i2m^*}(\psi^* \nabla \psi -\psi \nabla \psi^*)-\frac{{e^*}^2}{m^*c}|\psi|^2\bm A
 			\end{align}
 
 			GL coherence length: $\xi(T)=\frac{\hbar}{|2m^* \alpha(T) |^{1/2}} $
@@ -178,9 +178,9 @@
 
 			Single-valuedness of $\psi = |\psi| e^{i \phi} $ requires that the fluxoid introduced by F. London:
 			\begin{equation}
-				\Phi'=\Phi+\frac{m^* c}{e^*} \oint \frac{\bm J_S \cdot d \bm s}{|\psi|^2}
+				\Phi'=\Phi+\frac{m^* c}{e^*} \oint \frac{\bm J_s \cdot d \bm s}{|\psi|^2}
 			\end{equation}
-			to take only integral multiples of $\Phi_0 = hc/2e $, where $\Phi = \oint \bm A\cdot d\bm s$ is the ordinary magnetic flux. For ring with thickness comparable to $\lambda$, $J_S=0$ on the integration path, $\Phi=\Phi'=n \Phi_0$.
+			to take only integral multiples of $\Phi_0 = hc/2e $, where $\Phi = \oint \bm A\cdot d\bm s$ is the ordinary magnetic flux. For ring with thickness comparable to $\lambda$, $J_s=0$ on the integration path, $\Phi=\Phi'=n \Phi_0$.
 		% subsection josephson_tunneling_and_flux_quantization (end)
 
 		\subsection{Fluctuation and Nonequilibrium Effects} % (fold)
@@ -197,7 +197,85 @@
 
 	\section{Introduction to Electrodynamics of Superconductivity} % (fold)
 	\label{sec:intro_to_electrodynamics_of_superconductivity}
-	
+		\subsection{Screening} % (fold)
+		\label{sub:screening}
+			From the LEs:
+			\begin{equation}
+				d\bm J_s/dt = (c^2/4 \pi \lambda^2	)\bm E
+			\end{equation}
+			Taking the time derivative of the Maxwell eqt $ \nabla \times \bm h=4 \pi \bm J/c $ and eliminating $\partial \bm h/\partial t $ using $ \nabla \times \bm E=-(1/c) \partial \bm h/\partial t $, we obtain
+			\begin{equation}
+				-\nabla \times \nabla\times\bm E=\nabla^2\bm E = \bm E/\lambda^2
+			\end{equation}
+
+			Taking the curl of the Maxwell eqt $ \nabla\times\bm h=(4 \pi/c)\bm J $ and by substituting $-\bm h/c \Gamma = \nabla\times\bm J$, we see that
+			\begin{equation}
+				\nabla^2\bm h=(1/\lambda^2)\bm h
+			\end{equation}
+			where $ \lambda^2=mc^2/4 \pi n_s e^2 $
+
+			\subsubsection{E.G. Flat Slab in Parallel Magnetic Field} % (fold)
+			\label{subs:e_g_flat_slab_in_parallel_magnetic_field}
+				Boundary: $h=H_a$ at the two surfaces at $x=\pm d/2$\\
+				Solution:
+				\begin{equation}
+					h=H_a \frac{\cosh (x/\lambda)}{\cosh(d/2 \lambda	)}
+				\end{equation}
+
+				Average over the sample thickness $d$, gives
+				\begin{equation}
+				B\equiv \bar h \equiv H_a +4 \pi M = H_a \frac{2 \lambda}{d}\tanh \frac{d}{2 \lambda}
+				\end{equation}
+				from which when $d\gg \lambda, B\rightarrow 0$ and $M\rightarrow -H_a/4 \pi $. This is \textbf{Meissner effect} limit of perfect diamagnetism of bulk superconductors. On the other hand, when $d\ll \lambda$, series expansion shows
+				\begin{equation}
+					M\rightarrow -(H_a/4 \pi)(d^2/12 \lambda^2)
+				\end{equation}
+
+
+			% subsubsection e_g_flat_slab_in_parallel_magnetic_field (end)
+
+			\subsubsection{Critical Current of Wire} % (fold)
+			\label{ssub:critical_current_of_wire}
+				Consider a long superconducting wire of radius $a\gg \lambda$, carrying a current $I$. The current generate self-field at the surface of the wire of magnitude $H=2I/ca \le H_c$, hence $I_c =caH_c/2 $, which scales with the perimeter, suggesting that the current flows only in a surface layer of constant thickness. It can be confirmed analytically by solving the LEs and MEs in this geometry that the thickness of the layer is $\lambda$, hence the critical current density
+				\begin{equation}
+					J_c=\frac{c}{4 \pi} \frac{H_c}{\lambda}
+				\end{equation}
+				This $J_c$ also holds for wires thinner than $\lambda$, where the current density is nearly uniform and $I_c$ is proportional to the cross-sectional area. $J_c$ is typically of order $10^8$A/cm$^2$, very large.
+			% subsubsection critical_current_of_wire (end)
+
+
+		% subsection screening (end)
+
+			\subsection{The Intermediate State} % (fold)
+			\label{sub:the_intermediate_state}
+				Such effect depends on the \textbf{shape} of the sample.
+
+				\subsubsection{In Strong Magnetic Fields} % (fold)
+				\label{ssub:in_strong_magnetic_fields}
+					
+				% subsubsection in_strong_magnetic_fields (end)
+
+				\subsubsection{Above Critical Current of a superconducting Wire} % (fold)
+				\label{ssub:above_critical_current_of_a_superconducting_wire}
+					
+				% subsubsection above_critical_current_of_a_superconducting_wire (end)
+
+			% subsection the_intermediate_state (end)
+
+			\subsection{High-frequency Electrodynamics} % (fold)
+			\label{sub:high_frequency_electrodynamics}
+				\subsubsection{High-frequency Dissipation in Superconductors} % (fold)
+				\label{ssub:high_frequency_dissipation_in_superconductors}
+				
+				% subsubsection high_frequency_dissipation_in_superconductors (end)
+			% subsection high_frequency_electrodynamics (end)
+
+
 	% section intro_to_electrodynamics_of_superconductivity (end)
+
+	\section{The BCS Theory} % (fold)
+	\label{sec:the_bcs_theory}
+	
+	% section the_bcs_theory (end)
 
 \end{document}
