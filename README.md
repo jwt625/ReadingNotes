@@ -26,6 +26,9 @@ Planned:
 * David M. Pozar Microwave Engineering
 * Matthew D. Schwartz, Quantum Field Theory and the Standard Model
 * Peter Y. Yu & Manuel Cardona, Fundamentals of Semiconductors
+* Michael T. Heath, Scientific Computing
 
 tex template from [CareF](https://github.com/CareF)
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
 
