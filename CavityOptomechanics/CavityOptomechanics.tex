@@ -87,8 +87,158 @@
 
 	\section{Optical Cavities and Mechanical Resonators} % (fold)
 	\label{sec:optical_cavities_and_mechanical_resonators}
-		
+		\subsection{Optical resonators} % (fold)
+		\label{sub:optical_resonators}
+			F-P resonator (etalon):
+			\begin{itemize}
+				\item angular frequency: $ \omega_{\text{cav},m}\approx m\cdot \pi(c/L) $
+				\item free spectral range (FSR): $ \Delta \omega_{\text{FSR}}=\pi \frac{c}{L} $
+				\item optical finesse: $\mathcal{F}\equiv\Delta \omega_{\text{FSR}}/ \kappa$
+				\item quality factor: $Q_{\text{opt}}=\omega_{\text{cav}} \tau $
+				\item total cavity loss rate: $ \kappa=\kappa_{\text{ex}}+\kappa_0 $\\
+				where $\kappa_{\text{ex}} $ refers to the input coupling loss rate\\
+				photons going into the $\kappa_0$ decay channel won't be recorded
+			\end{itemize}
+		% subsection optical_resonators (end)
+
+		\subsection{Input-output formalism} % (fold)
+		\label{sub:input_output_formalism}
+			
+			Master equations: only internal dynamics is of interest\\
+			Input-output theory: include the light field being emitted by the cavity, formulated on the level of Heisenberg equations of motion, describing the time evolution of the field amplitude $\hat{a}$ inside the cavity:
+			\begin{equation}
+			\label{eqt:fieldApmInCavity}
+				\dot{\hat{a}}=-\frac{\kappa}{2}\hat{a}+i \Delta \hat{a} +\sqrt{\kappa_{\text{ex}}  }\hat{a}_{\text{in}}+ \sqrt{\kappa_0}\hat{f}_{\text{in}} 
+			\end{equation}
+			where laser detuning $\Delta=\omega_L- \omega_{\text{cav}} $, $\hat{a}_{\text{in}}$ should be regarded as a stochastic quantum field. The field is normalized that
+			\begin{equation}
+				P=\hbar \omega_L \left< \hat{a}_{\text{in}}^{\dagger} \hat{a}_{\text{in}} \right>
+			\end{equation}
+			is the input power launched into the cavity. The same kind of description holds for the ``unwanted'' channel $\hat{f}_{\text{in}} $.
+
+			The field reflected from the F-P resonator is given by
+			\begin{equation}
+			\label{eqt:fieldReflectedFromFP}
+				\hat{a}_{\text{out}}=\hat{a}_{\text{in}}-\sqrt{\kappa_{\text{ex}}} \hat{a}
+			\end{equation}
+
+			After taking average of eqt \ref{eqt:fieldApmInCavity}, \ref{eqt:fieldReflectedFromFP} and $ \left<\hat{f}_{\text{in}} \right> =0$:
+			\begin{gather}
+				\left<\hat{a} \right>= \frac{ \sqrt{\kappa_{\text{ex}}} \left< \hat{a}_{\text{in}} \right>}{\kappa/2-i \Delta}\\
+				\chi_{\text{opt}}(\omega)\equiv \frac{1}{-i(\omega+\Delta)+\kappa/2 }
+			\end{gather}
+			This is adequate as long as $ \kappa \ll \Delta \omega_{\text{FSR}} $, i.e., $Q\gg1$
+
+			The steady state cavity population
+			\begin{equation}
+				\bar{n}_{\text{cav}}=\left| \left< \hat{a} \right> \right|^2 = \frac{\kappa_{\text{ex}}}{\Delta^2+(\kappa/2)^2} \frac{P}{\hbar \omega_L}
+			\end{equation}
+
+			Reflection amplitude:
+			\begin{equation}
+				\mathcal{R}=\frac{\left< \hat{a}_{\text{out}} \right>}{\left< \hat{a}_{\text{in}} \right>}=\frac{(\kappa_0- \kappa_{\text{ex}}  )/2-i \Delta}{(\kappa_0+ \kappa_{\text{ex}}  )/2-i \Delta}
+			\end{equation}
+
+			If the external coupling dominates the cavity losses ($ \kappa_{\text{ex}}\approx \kappa\gg \kappa_0 $), the cavity is called ``\textbf{overcoupled}'' and $ \left|\mathcal{R}\right|^2 \approx 1$. The case where $ \kappa_{\text{ex}}=\kappa_0  $ is called ``\textbf{critical coupling}'', where $\mathcal{R}(\Delta=0)=0 $ on resonance. This implies that the input power is either fully dissipated within the resonator or fully transmitted. The situation $ \kappa_{\text{ex}} \ll \kappa_0  $ is referred to as ``\textbf{undercoupling}'' and is associated with cavity losses dominated by intrinsic losses, leading to an effective loss of information.
+
+
+		% subsection input_output_formalism (end)
+
+		\subsection{Mechanical resonators} % (fold)
+		\label{sub:mechanical_resonators}
+			\begin{itemize}
+				\item displacement field: $\vec{u}_n(\vec r) $, $n$ denotes the mode
+				\item vibration frequency: $\Omega_m$
+				\item energy damping rate: $ \Gamma_m $
+				\item mechanical quality factor: $ Q_m = 1/\delta \Phi = \Omega_m/\Gamma_m $
+				\item global amplitude: $x (\vec r) $
+				\item a suitable mode function: $ \vec u (\vec r,t)=x(t)\cdot \vec u(\vec r) $
+			\end{itemize}
+			then the temperal evolution of $x(t) $:
+			\begin{equation}
+			\label{eqt:eqtOfXforMechResonator}
+				m_{\text{eff}} \frac{d^2 x(t)}{dt^2} +m_{\text{eff}} \frac{dx(t)}{dt}+m_{\text{eff}} \Omega_m^2 x(t)=F_{\text{ex}}(t)
+			\end{equation}
+			$F_{\text{ex}}(t)$ denotes the sum of all forces acting on the mechanical oscillator. In the absence of external forces, it is given by the Langevin force.
+
+			Eqt \ref{eqt:eqtOfXforMechResonator} can be solved easily in frequency space:
+			\begin{gather}
+				x(\omega)=\int dt e^{i \omega t} x(t)\\
+				x_m(\omega)=\left[ m_{\text{eff}} \left( \Omega_m^2-w	^2 \right)-im_{\text{eff}} \Gamma_m \omega \right]^{-1}
+			\end{gather}
+
+			The quantum mechanical treatment:
+			\begin{gather}
+				\hat{H}=\hbar \Omega_m \hat{b}^{\dagger}\hat{b}+\frac{1}{2} \hbar \Omega_m\\
+				\hat{x}=x_{\text{XPF}}(\hat{b}+\hat{b}^{\dagger})\\
+				\hat{p}= -i m_{\text{eff}} \Omega_m x_{\text{XPF}}(\hat{b}-\hat{b}^{\dagger})
+			\end{gather}
+			where
+			\begin{equation}
+				x_{\text{ZPF}}=\sqrt{ \frac{\hbar}{2 m_{\text{eff}} \Omega_m } }
+			\end{equation}
+			is the zero-point fluctuation amplitude.
+
+			Coupled to a high-temperature bath:
+				\begin{gather}
+					\frac{d}{dt}\bar n = -\Gamma_m (\bar n-\bar n_{\text{th}})\\
+					\frac{d}{dt}\bar n(t=0) = \Gamma_m \bar n_{\text{th}}\approx \frac{k_B T_{\text{bath}} }{\hbar Q_m}
+				\end{gather}
+
+			\subsubsection{Mechanical dissipation} % (fold)
+			\label{ssub:mechanical_dissipation}
+				
+				\begin{itemize}
+					\item viscous damping
+					\item clamping losses
+					\item fundamental anharmonic effects
+					\item materials-induced losses
+				\end{itemize}
+			% subsubsection mechanical_dissipation (end)
+
+			\subsubsection{Susceptibility, noise spectra, fluctuation-dissipation theorem} % (fold)
+			\label{ssub:susceptibility_noise_spectra_fluctuation_dissipation_theorem}
+				Gated Fourier transform:
+				\begin{equation}
+					\tilde x(\omega)=\frac{1}{\sqrt \tau} \int_0^ \tau x(t)e^{i \omega t }dt
+				\end{equation}
+
+				Noise power spectral density:
+				\begin{equation}
+					S_{xx}\equiv \int_{-\infty}^{+\infty} \left< x(t)x(0) \right> e^{i \omega t}dt
+				\end{equation}
+
+				Wiener-Khinchin theorem:
+				\begin{equation}
+					\lim_{\tau\rightarrow \infty} \left<\left|\tilde x(\omega) \right|^2\right>=S_{xx}(\omega)
+				\end{equation}
+
+				The experimentally measured mechanical noise spectrum yields the variance of the mechanical displacement $\left< x^2\right>$:
+				\begin{equation}
+					\int_{-\infty}^{+\infty} S_{xx}(\omega)\frac{d \omega}{2 \pi}=\left< x^2\right>
+				\end{equation}
+
+				The fluctuation-dissipation theorem (FDT):
+				\begin{equation}
+					S_{xx}(\omega)=2 \frac{k_B T}{\omega} \text{Im} \chi_m (\omega)
+				\end{equation}
+				where $\chi_m (\omega)$ denotes the mechanical susceptibility.
+
+				The quantum FDT:
+				\begin{equation}
+					S_{xx}(\omega)= \frac{\hbar}{1-\exp (-\hbar \omega/k_B T) } \text{Im} \chi_{xx} (\omega)
+				\end{equation}
+			% subsubsection susceptibility_noise_spectra_fluctuation_dissipation_theorem (end)
+
+		% subsection mechanical_resonators (end)
+
+
 	% section optical_cavities_and_mechanical_resonators (end)
+
+	\section{Principles of Optomechanical Coupling} % (fold)
+	\label{sec:principles_of_optomechanical_coupling}
+	
+	% section principles_of_optomechanical_coupling (end)
 
 	%\bibliography{CQED}
 \end{document}
