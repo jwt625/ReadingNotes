@@ -118,6 +118,20 @@
 
 	\section{Cavity Quantum Electrodynamics} % (fold)
 	\label{sec:cavity_quantum_electrodynamics}
+		\begin{figure}[!h]
+			\centering
+			%width can be changed
+			\includegraphics[width=2in]{cavityQED.png}
+			\caption{A two level atom interacts with the field inside of a high finesse cavity. \cite{Schuster2007}}
+			\label{pic:EnLevelOfJCH}
+		\end{figure}
+		\begin{figure}[!h]
+			\centering
+			%width can be changed
+			\includegraphics[width=3in]{cQEDwithSuCondQubit.png}
+			\caption{Schematic representation of cavity QED with superconducting circuits. \cite{Schuster2007}}
+			\label{pic:EnLevelOfJCH}
+		\end{figure}
 		Jaynes-Cummings Hamiltonian:
 		\begin{equation}
 			H_{\text{JC}} = \hbar \omega_r (a^{\dagger}a+1/2)+ \hbar \frac{\omega_a}{2} \sigma_z + \hbar g ( a^{\dagger} \sigma^- + a \sigma^+ )
@@ -233,6 +247,57 @@
 
 
 	% section cavity_quantum_electrodynamics (end)
+
+	\section{Cavity QED with Superconducting Circuits} % (fold)
+	\label{sec:cavity_qed_with_superconducting_circuits}
+		\subsection{The Parallel LCR Oscillator} % (fold)
+		\label{sub:the_lcr_oscillator}
+			Equation of motion:
+			\begin{equation}
+				\frac{d^2 q}{dt^2}-\frac{1}{RC}\frac{dq}{dt}+\frac{q}{LC}=0
+			\end{equation}
+			Solution:
+			\begin{equation}
+				q(t)=q_0\exp\left[ i(\omega_0 +i \frac{\kappa}{2})t+\phi \right]
+			\end{equation}
+			where charge oscillation frequency $\omega_0=1/\sqrt{RC} $ and decay rate $ \kappa=2/RC $.\\
+			Impedance:
+			\begin{equation}
+				Z_{LCR}(\omega)=\left( j \omega C+\frac{1}{j \omega L}+\frac{1}{R} \right)^{-1}=\frac{R}{1+2jQ \delta \omega/\omega_0}
+			\end{equation}
+			where the quality factor $Q=\omega_0 RC $
+
+		% subsection the_lcr_oscillator (end)
+		\subsection{Transmission Line as Series of LC Circuits} % (fold)
+		\label{sub:transmission_line_as_series_of_lc_circuits}
+			
+			\begin{figure}[!h]
+				\centering
+				%width can be changed
+				\includegraphics[width=2in]{transmissionLine.png}
+				\label{pic:EnLevelOfJCH}
+			\end{figure}
+			Impedance of one small section:
+			\begin{equation}
+				Z_0=\sqrt{\frac{ R_l +j \omega L_l }{G_l + j \omega C_l}}
+			\end{equation}
+			Small loss: $ Z_0=\sqrt{L_l/C_l} $\\
+			Propagation coefficient: $ \gamma=\sqrt{( R_l +j \omega L_l )(G_l + j \omega C_l)} $\\
+			$ \beta=\text{Im} \gamma $ describes the phase, for given frequency, it defines a phase velocity $v=\omega/\beta$\\
+			The attenuation $\alpha=\text{Re} \gamma \approx R_l/Z_0+G_l Z_0 $\\
+			Effective input impedance of an arbituary load $ Z_l $:
+			\begin{equation}
+				Z_{\text{in}}=Z_0 \frac{Z_L+Z_0 \tanh \gamma l}{Z_0+Z_L\tanh \gamma l}
+			\end{equation}
+			where $l$ is the length.
+
+			For termination with high impedances, there will be two types of resonance:
+			\begin{itemize}
+				\item high impedance resonance with $ l=n \lambda/2 $
+				\item high admittance resonance with $ l=(2n+1)\lambda/4 $
+			\end{itemize}
+		% subsection transmission_line_as_series_of_lc_circuits (end)
+	% section cavity_qed_with_superconducting_circuits (end)
 
 	\bibliography{CQED}
 \end{document}
