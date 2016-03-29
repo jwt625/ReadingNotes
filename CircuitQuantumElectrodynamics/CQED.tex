@@ -123,14 +123,14 @@
 			%width can be changed
 			\includegraphics[width=2in]{cavityQED.png}
 			\caption{A two level atom interacts with the field inside of a high finesse cavity. \cite{Schuster2007}}
-			\label{pic:EnLevelOfJCH}
+			\label{pic:cavityQED}
 		\end{figure}
 		\begin{figure}[!h]
 			\centering
 			%width can be changed
 			\includegraphics[width=3in]{cQEDwithSuCondQubit.png}
 			\caption{Schematic representation of cavity QED with superconducting circuits. \cite{Schuster2007}}
-			\label{pic:EnLevelOfJCH}
+			\label{pic:cQEDwithSuCondQubit}
 		\end{figure}
 		Jaynes-Cummings Hamiltonian:
 		\begin{equation}
@@ -154,7 +154,7 @@
 			%width can be changed
 			\includegraphics[width=3in]{JClevels.png}
 			\caption{Energy level diagram of the J-C Hamiltonian. \cite{Schuster2007}}
-			\label{pic:EnLevelOfJCH}
+			\label{pic:JClevels}
 		\end{figure}
 
 		Eigenstates: $ \ket{\psi_{\pm} } = ( \ket g \ket n \pm \ket e \ket{n-1} )/\sqrt 2 $, whose energies split by $2g\sqrt n$, i.e., energy levels are anharmonic even for single photon in the strong coupling limit.
@@ -188,6 +188,14 @@
 				&E_{g,0}=-\frac{\hbar \Delta}{2}
 			\end{align}
 			where $n$ is the total number of excitations, \textbf{not} the number of photons and $\pm$ refer to the higher energy or lower energy state in the $n$ excitation manifold, \textbf{not} the atom state.
+
+			\begin{figure}[!h]
+				\centering
+				%width can be changed
+				\includegraphics[width=3in]{avoidedCross.png}
+				\caption{The avoided crossing in the transition frequency. \cite{Schuster2007}}
+				\label{pic:avoidedCross}
+			\end{figure}
 
 			Eigenstates:
 			\begin{align}
@@ -226,7 +234,7 @@
 				%width can be changed
 				\includegraphics[width=3in]{cQEDphase.png}
 				\caption{A phase diagram for cavity QED, described by the atom-photon coupling strength $g$ and the detuning $\Delta$, normalized to the rates of decay $\Gamma = \max[ \gamma,\kappa,1/T ]. $\cite{Schuster2007}}
-				\label{pic:EnLevelOfJCH}
+				\label{pic:cQEDphase}
 			\end{figure}
 
 			\begin{figure}[!h]
@@ -234,7 +242,7 @@
 				%width can be changed
 				\includegraphics[width=3in]{spectrumInSDlimit.png}
 				\caption{Spectrum of coupled cavity and atom system in strong dispersive limit. \cite{Schuster2007}}
-				\label{pic:EnLevelOfJCH}
+				\label{pic:spectrumInSDlimit}
 			\end{figure}
 
 			If $\chi>\gamma$ is reached, the atom is shifted by more than a linewidth for each photon, making it possible to measure the exact photon number distribution. A CNOT gate can also be realized if the qubit is made only to respond when a single photon is present.
@@ -263,6 +271,7 @@
 			where charge oscillation frequency $\omega_0=1/\sqrt{RC} $ and decay rate $ \kappa=2/RC $.\\
 			Impedance:
 			\begin{equation}
+			\label{eqt:LCR_Impedance}
 				Z_{LCR}(\omega)=\left( j \omega C+\frac{1}{j \omega L}+\frac{1}{R} \right)^{-1}=\frac{R}{1+2jQ \delta \omega/\omega_0}
 			\end{equation}
 			where the quality factor $Q=\omega_0 RC $
@@ -275,7 +284,7 @@
 				\centering
 				%width can be changed
 				\includegraphics[width=2in]{transmissionLine.png}
-				\label{pic:EnLevelOfJCH}
+				\label{pic:transmissionLine}
 			\end{figure}
 			Impedance of one small section:
 			\begin{equation}
@@ -291,12 +300,150 @@
 			\end{equation}
 			where $l$ is the length.
 
-			For termination with high impedances, there will be two types of resonance:
+			For termination with high impedances (open/near open), there will be \textbf{two types of resonance}:
 			\begin{itemize}
-				\item high impedance resonance with $ l=n \lambda/2 $
+				\item high impedance resonance with $ l=n \lambda/2=\pi v/\omega_0 $
 				\item high admittance resonance with $ l=(2n+1)\lambda/4 $
 			\end{itemize}
+			For the first case:
+			\begin{equation}
+				Z_{\text{in}}^{\text{open}}=Z_0 \frac{1+j\tan \beta l\tanh \alpha l}{\tanh \alpha l+j\tan \beta l}
+			\end{equation}
+			For $ \alpha \rightarrow 0 $, i.e., lossless, $ Z_{\text{in}}^{\text{open}} \rightarrow -j\cot \beta l $, which has poles when $ \beta l\approx (n+1)\pi $, expanding for small $ \delta \omega_n $:
+			\begin{gather}
+				\beta l=(\omega/v)(\pi v/\omega_{\lambda/2})=\pi(n \omega_{\lambda/2} + \delta \omega_n)/\omega_{\lambda/2}\\
+				Z_{\text{in}}^{\text{open}}=\frac{Z_0/\alpha l}{1+2j \left( \frac{n \pi}{2 \alpha l} \right) \left( \frac{\delta \omega_n}{n \omega_{\lambda/2}} \right) }
+			\end{gather}
+			Comparing with eqt \ref{eqt:LCR_Impedance} gives:
+			\begin{align}
+				&\omega_n = n \omega_{\lambda/2}\\
+				&Q_n=R_n /Z_{\text{cn}}=\frac{n \pi}{2 \alpha l}\\
+				&R_n = Z_0/ \alpha l = R_l l\\
+				&C_n = \frac{Q}{\omega_n R}=\frac{\pi}{2Z_0 \omega_{\lambda/2}}=\frac{1}{2}C_l l\\
+				&L_n=\frac{1}{\omega_n^2C}=\frac{2Z_0}{\pi n^2 \omega_{\lambda/2}}=\frac{2}{n^2 \pi^2}L_ll\\
+				&Z_{\text{cn}}=\sqrt{L_n/C_n}=\frac{2Z_0}{n \pi}
+			\end{align}
+			\begin{figure}[!h]
+				\centering
+				%width can be changed
+				\includegraphics[width=2in]{LCRapprox.png}
+				\caption{Real and imaginary parts of the impedance of resonator formed terminating a transmission line with an open-circuit and model of LCR resonators. \cite{Schuster2007}}
+				\label{pic:LCRapprox}
+			\end{figure}
 		% subsection transmission_line_as_series_of_lc_circuits (end)
+
+		\subsection{Coupled LCR Resonator and Transmission Line Resonator} % (fold)
+		\label{sub:coupled_lcr_resonator}
+			\begin{figure}[!h]
+				\centering
+				%width can be changed
+				\includegraphics[width=3in]{coupledLCR.png}
+				\caption{The capacitive coupling (a) to an environment of impedance Z0 through a capacitor. (b) The transformed input impedance seen by the oscillator. \cite{Schuster2007}}
+				\label{pic:coupledLCR}
+			\end{figure}
+			The effect of the coupling is to add an effective capacitance $ C_{\text{in}} $ and an effective parallel resistance $ Z_0/q_{\text{in}}^2 $, where $ q_{\text{in}}=\omega C_{\text{in}} Z_0 $
+
+			If the internal resistance is negligible:
+			\begin{equation}
+				Q_{\text{ext}}=\frac{1}{q_{\text{in}}}\frac{Z_0}{Z_{\text{cn}}}\approx \frac{n \pi}{2q_{\text{in}}^2}
+			\end{equation}
+			If internal resistance is significant compared to the load:
+			\begin{equation}
+				\frac{1}{Q_L}=\frac{1}{Q_{\text{ext}}}+\frac{1}{Q_{\text{int}}}
+			\end{equation}
+
+			In practice it is more convenient to use transmission of a two sided cavity where only the signal is present. If internal losses are negligible and $ Q\gg 1 $:
+			\begin{equation}
+				S_{21}=\frac{T_0}{1-j \frac{\delta \omega_n}{(\kappa_{\text{in}}+\kappa_{\text{out}})/2}}
+			\end{equation}
+			where
+			\begin{align}
+				&\kappa_{\text{in/out}}=\left( \frac{2}{\pi}  \right)q_{\text{in/out}}^2 \omega_n\\
+				&T_0 = \frac{\sqrt{\kappa_{\text{in}}\kappa_{\text{out}}}}{(\kappa_{\text{in}}+\kappa_{\text{out}})/2}\\
+				&\omega_n = n \omega_{\lambda/2} (1- (q_{\text{in}}+q_{\text{out}}))
+			\end{align}
+			and reflection:
+			\begin{equation}
+				S_{11}=\frac{\kappa_{\text{in}}}{\frac{\kappa_{\text{in}}+\kappa_{\text{in}}}{2}-j \delta \omega_n}-1
+			\end{equation}
+			Transmission phase shift:
+			\begin{equation}
+				\phi=\arctan\left( \frac{\delta \omega}{\kappa/2} \right)
+			\end{equation}
+			e.g., $ \phi=\pm\arctan\left( 2g^2/\kappa \Delta \right) $ in strong dispersive interaction\cite{SchusterEtal2005}.
+		% subsection coupled_lcr_resonator (end)
+
+		\subsection{Intrinsic Resonator loss} % (fold)
+		\label{sub:intrinsic_resonator_loss}
+			\begin{itemize}
+				\item Resistive Losses: ideally increase exponentially in $ T_c/T $
+				\item Dielectric Losses: $ Q_{\text{diel}} =\frac{1}{\tan \delta}$, where $ \tan \delta=-\epsilon_{\text{im}}/\epsilon_{\text{re}} $
+				\item Radiative Losses: $Q_{\text{rad}}\approx 3.5 \left( \frac{l}{b} \right)^2$\\
+				For experimental parameters: $ l\approx 2.5 $cm, $ b\approx 20 \mu $m, giving $ Q_{\text{rad}}\approx 5\times 10^6 $
+			\end{itemize}
+			For an approximate overall Q:
+			\begin{itemize}
+				\item $Q\sim 1500$ in \cite{LarsenEtal2015}
+				\item $ Q\approx 10^4 $ in \cite{SchusterEtal2005}
+			\end{itemize}
+		% subsection intrinsic_resonator_loss (end)
+
+		\subsection{Cooper Pair Box} % (fold)
+		\label{sub:cooper_pair_box}
+			\begin{figure}[!h]
+				\centering
+				%width can be changed
+				\includegraphics[width=2in]{CPB.png}
+				\caption{The circuit diagram of the single Cooper Pair Box.\cite{Krantz2010} }
+				\label{pic:CPB}
+			\end{figure}
+			\begin{figure}[!h]
+				\centering
+				%width can be changed
+				\includegraphics[width=3in]{transmon.png}
+				\caption{A transmon coupled to a tunable cavity resonator.\cite{Krantz2010} }
+				\label{pic:transmon}
+			\end{figure}
+
+			Josephson energy: $ E_J=\frac{R_Q \Delta}{2R_N} $
+
+			Coulomb energy: $E_C=\frac{e^2}{2 C_{\Sigma}}  $\\
+			where $ R_Q = h/4e^2 $ is the quantum state resistance, $R_N$ is the normal state resistance, $\Delta$ is the superconducting energy gap. $ C_{\Sigma}=C_g+C_J(+C_s\text{ for transmon}) $ is the total capacitance between the island and its environment.
+
+			$ E_J $ is tunable by an external $B$ field:
+			\begin{equation}
+				E_J=E_J^{\text{max}}\left| \cos \left( \frac{\pi \Phi_{\text{ext}}}{\Phi_0} \right) \right|
+			\end{equation}
+			where $\Phi_0=h/2e $ is the flux quantum.
+
+			The Hamiltonian\footnote{$n_g$ is denoted by $n_g/2$ in old literatures (\cite{Schuster2007},\cite{SchusterEtal2005}), here the notation follows \cite{Koch2007} and \cite{Krantz2010}. }:\\
+			in charge basis:
+			\begin{equation}
+				H=4E_C \sum (\hat{n}-n_g)^2 \ket n \bra n -\frac{E_J}{2}\sum[ \ket{n+1}\bra n+ \ket n \bra{n+1} ]
+			\end{equation}
+			in phase basis:
+			\begin{equation}
+				H=4E_C(i\frac{d}{d \phi} -n_g)^2-E_J \cos \phi
+			\end{equation}
+			connected by
+			\begin{gather}
+				\ket \theta = \sum e^{i \theta n}\ket n\\
+				\ket n = \int d \theta e^{-i \theta n}\ket \theta
+			\end{gather}
+			Energy levels:
+			\begin{figure}[!h]
+				\centering
+				%width can be changed
+				\includegraphics[width=3in]{transmonEnLevel.png}
+				\caption{Eigenenergies $E_m$ as a function of the effective offset charge $n_g$ for different $E_J/E_C$ ratios.\cite{Koch2007}}
+				\label{pic:transmonEnLevel}
+			\end{figure}
+
+			Plasma frequency: $ v_p=\sqrt{8E_JE_C}/h $
+
+		% subsection cooper_pair_box (end)
+
+
 	% section cavity_qed_with_superconducting_circuits (end)
 
 	\bibliography{CQED}
