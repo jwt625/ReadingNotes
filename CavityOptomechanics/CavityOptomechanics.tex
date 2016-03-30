@@ -194,6 +194,9 @@
 					\item fundamental anharmonic effects
 					\item materials-induced losses
 				\end{itemize}
+				\begin{equation}
+					\frac{1}{Q_{\text{total}}}=\sum \frac{1}{Q_i}
+				\end{equation}
 			% subsubsection mechanical_dissipation (end)
 
 			\subsubsection{Susceptibility, noise spectra, fluctuation-dissipation theorem} % (fold)
@@ -228,6 +231,7 @@
 				\begin{equation}
 					S_{xx}(\omega)= \frac{\hbar}{1-\exp (-\hbar \omega/k_B T) } \text{Im} \chi_{xx} (\omega)
 				\end{equation}
+				it implies $S_{xx}(\omega)=0 $ for $ \omega<0 $ at $T=0 $, means the $ T=0 $ bath is not able to supply energy.
 			% subsubsection susceptibility_noise_spectra_fluctuation_dissipation_theorem (end)
 
 		% subsection mechanical_resonators (end)
@@ -237,8 +241,177 @@
 
 	\section{Principles of Optomechanical Coupling} % (fold)
 	\label{sec:principles_of_optomechanical_coupling}
-	
+		\subsection{The radiation-pressure force and optomechanical coupling} % (fold)
+		\label{sub:the_radiation_pressure_force}
+			The fundamental mechanism that couples the properties of the cavity radiation field to the mechanical motion is the momentum transfer of photons, i.e., radiation pressure.
+			\begin{equation}
+				\hat{\left<  F \right>}=2\hbar k \frac{\left< \hat a^{\dagger}\hat a \right>}{\tau_c}=\hbar \frac{\omega_{\text{cav}}}{L}\left< \hat a^{\dagger}\hat a \right>
+			\end{equation}
+			$ \tau_c =2L/c$: cavity round-trip time\\
+			$ \hbar \omega_{\text{cav}}/L $: r-p force caused by one intracavity photon\\
+			$G = \omega_{\text{cav}}/L $: the change of cavity resonance frequency with position, i.e., the frequency pull parameter
+
+			More general:
+			\begin{itemize}
+				\item by direct momentum transfer via reflection
+				\item by coupling via a dispersive shift of the cavity frequency
+				\item by optical near-field effects
+			\end{itemize}
+
+			Gradient forces:
+			\begin{gather}
+				U=\frac{1}{2} \vec p \cdot \vec E = \frac{1}{2} \alpha \left| \vec E (\vec r ) \right|^2\\
+				\vec F = -\vec \nabla U
+			\end{gather}
+
+
+		% subsection the_radiation_pressure_force (end)
+
+
+		\subsection{Hamiltonian formulation} % (fold)
+		\label{sub:hamiltonian_formulation}
+			Restrict to:
+			\begin{itemize}
+				\item one of the many optical mode
+				\item one of the many mechanical normal modes
+			\end{itemize}
+			\begin{equation}
+				\hat H_0=\hbar \omega_{\text{cav}}\hat a^{\dagger}\hat a+\hbar \Omega_m \hat b^{\dagger}\hat b
+			\end{equation}
+
+			The cavity resonance frequency is modulated by the mechanical amplitude:
+			\begin{equation}
+				\omega_{\text{cav}} (x)\approx \omega_{\text{cav}} + x \frac{\partial \omega_{\text{cav}}}{\partial x}+...
+			\end{equation}
+			For most realizations, it suffices to keep the linear term.\\
+			$G=- \partial \omega_{\text{cav}}/\partial x$: optical frequency shift per displacement
+
+			For a simple cavity of length $L$, $G=\omega_{\text{cav}}/L$. The minus sign of $G$ reflects the fact that we choose $x>0$ to increase the cavity length, leading to a decrease in $\omega_{\text{cav}}$ if $G>0$.
+			\begin{equation}
+				\therefore \hbar \omega_{\text{cav}} (x) \hat a^{\dagger}\hat a \approx \hbar (\omega_{\text{cav}} -G \hat x) \hat  a^{\dagger}\hat a
+			\end{equation}
+			The interaction part of the Hamiltonian:
+			\begin{equation}
+				\hat H_{\text{int}}=-\hbar g_0 \hat a^{\dagger}\hat a ( \hat b+\hat b^{\dagger} )
+			\end{equation}
+			$ g_0=G x_{\text{ZPF}} $: vacuum optomechanical coupling strength.
+
+			The Hamiltonian reveals that the interaction is fundamentally \textbf{nonlinear}, involving three operators (three-wave mixing).
+
+			Radiation-pressure force:
+			\begin{equation}
+				\hat F=-\frac{d\hat H_{\text{int}}}{d\hat x}=\hbar G\hat a^{\dagger}\hat a=\hbar \frac{g_0}{x_{\text{ZPF}}} \hat a^{\dagger}\hat a
+			\end{equation}
+
+			Applying the unitary transformation $\hat U = \exp(i \omega_L \hat a ^{\dagger} \hat a t ) $ makes the driving terms time independent\footnote{ $\hat U ( \hat a^{\dagger} e^{-i \omega_L t} +\hat a e^{+i \omega_Lt} )\hat U^{\dagger}=\hat a^{\dagger}+\hat a $} and generate a new Hamiltonian of the form
+			\begin{equation}
+				\hat H=-\hbar \Delta \hat a^{\dagger}\hat a+\hbar \Omega_m \hat b^{\dagger} \hat b-\hbar g_0 \hat a^{\dagger} \hat a (\hat b + \hat b^{\dagger})+...
+			\end{equation}
+			$\Delta =\omega_L-w	_{\text{cav}} $: laser detuning
+
+			Driving term (omitted in the above Hamiltonian):
+			\begin{equation}
+				\hat H_{\text{drive}}=i\hbar \sqrt{\kappa_{\text{ex}}} \hat a^{\dagger} \alpha_{\text{in}}+H.c.
+			\end{equation}
+			for a laser of amplitude $\alpha_{\text{in}} $
+
+			``Linerized'' approximate description:
+			\begin{gather}
+				\hat a=\bar \alpha +\delta \hat a
+			\end{gather}
+			expand the interactive part of the Hamiltonian in powers of $\bar \alpha$:\\
+			$ -\hbar g_0 |\bar \alpha|^2(\hat b + \hat b^{\dagger}) $: an average r-p force $ \bar F=\hbar G |\bar \alpha|^2 $, can be onitted after:\\
+			an appropriate shift of the displacement's origin: $ \delta\bar x=\bar F/m_{\text{eff}}\Omega_m^2 $ \\
+			a modified detuning: $ \Delta_{\text{new}} =\Delta_{\text{old}} +G \delta \bar x $
+
+			The term we keep:
+			\begin{equation}
+				-\hbar g_0 ( \bar \alpha^* \delta\hat a+\bar \alpha \delta \hat a^{\dagger} )( \hat b+\hat b^{\dagger} )
+			\end{equation}
+			Further assume $\bar \alpha=\sqrt{\bar n_{\text{cav}}} $ is real, thus the Hamiltonian
+			\begin{gather}
+				\hat H\approx -\hbar \Delta \hat a^{\dagger}\hat a+\hbar \Omega_m \hat b^{\dagger} \hat b+\hat H_{\text{int}}^{(\text{lin})}\\
+				\hat H_{\text{int}}^{(\text{lin})} = -\hbar g_0 \sqrt{\bar n_{\text{cav}}}( \delta\hat a+\delta \hat a^{\dagger} )( \hat b+\hat b^{\dagger} )
+			\end{gather}
+			$ g=g_0 \sqrt{\bar n_{\text{cav}}} $: optomechanical coupling strength
+
+			The linearized description can be good even if the average photon number inside the cavity is not large, because the mechanical system may not be able to resolve the individual photon for large decay rate $\kappa$.
+
+			$ g>\kappa $: Strong coupling regime
+
+			$g_0>\kappa$: nonlinear quantum effects become observable
+
+			Three regime depending on the detuning:
+			\begin{itemize}
+				\item $\kappa\ll \Omega_m $ sideband-resolved regime
+				\item $ \Delta\approx -\Omega_m $: red-detuned regime
+				\item $ \Delta\approx +\Omega_m $: blue-detuned regime
+			\end{itemize}
+
+			For $ \Delta\approx -\Omega_m $(red-detuned regime), we have two harmonic oscillators of equal frequency that can interchange quanta: the mechanical oscillator and the driven cavity mode. The terms in the interactive Hamiltonian describing this are
+			\begin{equation}
+			\label{eqt:redDetuneTerms}
+				-\hbar g (\delta \hat a^{\dagger}\hat b+\delta\hat a \hat b^{\dagger} )
+			\end{equation}
+			those term that create or destroy two quanta at the same time ( $ \delta\hat a^{\dagger} \hat b^{\dagger}, \delta \hat a\hat b $ ) can be omitted because they are strongly ``nonresonant''. Keeping only terms in \ref{eqt:redDetuneTerms} is known as the rotating-wave approximation (RWA). This case is the one relevant for cooling and for quantum state transfer between light and mechanics, also referred to as a ``beam-splitter'' interaction.
+			
+			For $ \Delta\approx +\Omega_m $ (blue-detuned regime), the dominant terms in RWA
+			\begin{equation}
+				\hbar g( \delta\hat a^{\dagger} \hat b^{\dagger} + \delta \hat a\hat b )
+			\end{equation}
+			represent a ``two-mode squeezing'' interaction that lies at the heart of parametric amplification. Without dissipation, this leads to an exponential growth of energies in bothvibrational mode and the driven optical mode, with strong quantum correlations between, thus can be used for entangling both modes.
+
+			When $ \Delta=0 $, the whole interaction term means that the mechanical position $ \hat x \propto \hat b+\hat b^ \dagger $ leads to a phase shift of the light field, which is used in optomechanical displacement detection.
+
+
+		% subsection hamiltonian_formulation (end)
+
+		\subsection{Optomechanical equation of motion} % (fold)
+		\label{sub:optomechanical_equation_of_motion}
+			Optomechanical ``backaction'':\\
+			mechanical motion $\rightarrow$\\
+			optical resonance frequency shift $ \rightarrow $\\
+			change of circulating light intensity $\rightarrow $\\
+			change of radiation-pressure force
+
+			Input-output formalism in the form of quantum Langevin equations:
+			\begin{gather}
+				\dot{\hat a}=-\frac{\kappa}{2}\hat a+i(\Delta+G \hat x)\hat a+\sqrt{\kappa_{\text{ex}}} \hat a_{\text{in}}+\sqrt{\kappa_0}\hat f_{\text{in}}\\
+				\dot{\hat b}=\left( -i \Omega_m- \frac{\Gamma_m}{2} \right)\hat b + i g_0 \hat a^\dagger \hat a+\sqrt{\Gamma_m}\hat b_{\text{in}}
+			\end{gather}
+			correct as long as $ \Omega_m\gg \Gamma_m $
+
+			The noise correlators:(omitted)
+
+			Classical, averaged version:
+			\begin{gather}
+				\dot \alpha = -\frac{\kappa}{2} \alpha+i(\Delta+G  x) \alpha+\sqrt{\kappa_{\text{ex}}}  \alpha_{\text{in}}\\
+				m_{\text{eff}} \ddot x=-m_{\text{eff}} \Omega_m^2 x-m_{\text{eff}}\Gamma_m \dot x+\hbar G |\alpha|^2
+			\end{gather}
+			neglecting all fluctuations. These are the basis for discussion of nonlinear phenomena, particularly the optomechanical parametric instability.
+
+			Linearize around some steady-state solution:
+			\begin{gather}
+				\delta \dot{\hat a}=(i \Delta- \frac{\kappa}{2} )\delta\hat a+ig( \hat b+\hat b^\dagger )+\sqrt{\kappa_{\text{ex}}}\delta \hat a_{\text{in}}(t)+\sqrt{\kappa_0}\hat f_{\text{in}}(t)\\
+				\dot{\hat b}=(-i \Omega_m - \frac{\Gamma_m}{2} )\hat b+ig ( \delta\hat a+\delta\hat a^\dagger )+\sqrt{\Gamma_m}\hat b_{\text{in}}(t)
+			\end{gather}
+
+			The quantum and the classical equations can all be displayed in frequency space.
+
+
+
+		% subsection optomechanical_equation_of_motion (end)
+
+
 	% section principles_of_optomechanical_coupling (end)
+
+
+	\section{Experimental Realization and Optomechanical Parameters} % (fold)
+	\label{sec:experimental_realization}
+		
+	% section experimental_realization (end)
+
+
 
 	%\bibliography{CQED}
 \end{document}
