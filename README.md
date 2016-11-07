@@ -28,6 +28,10 @@ Planned:
 * Peter Y. Yu & Manuel Cardona, Fundamentals of Semiconductors
 * Michael T. Heath, Scientific Computing
 
+## Note
+
+Recently (2016-10) I started using Markdown to take notes and might not continue updating this repo.
+
 tex template from [CareF](https://github.com/CareF)
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
