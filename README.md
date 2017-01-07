@@ -1,10 +1,6 @@
----
-author:
-- Wentao Jiang
-
-Since Mar 20, 2016
 
 # ReadingNotes
+Since Mar 20, 2016
 
 This is a collection of my book reading notes. Notes taken while reading thesis/review might also be included.
 
