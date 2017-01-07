@@ -37,9 +37,9 @@ Planned:
 
 ## Note
 
-Octo 2016: stated using Markdown to take notes.
+Oct 2016: stated using Markdown to take notes.
 
-tex template from [CareF](https://github.com/CareF) and RevTeX
+TeX template from [CareF](https://github.com/CareF) and [REVTeX](https://journals.aps.org/revtex).
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
 
