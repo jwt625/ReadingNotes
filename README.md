@@ -2,13 +2,16 @@
 author:
 - Wentao Jiang
 
+Since Mar 20, 2016
+
 # ReadingNotes
 
 This is a collection of my book reading notes. Notes taken while reading thesis/review might also be included.
 
 
-In progress:
+Physics:
 ------------
+### Books
 
 * Orazio Svelto & David C. Hanna, Principles of Lasers
 * D.F. Walls & Gerard J. Milburn, Quantum Optics
@@ -19,14 +22,20 @@ In progress:
   * Charles Kittel, Introduction to Solid State Physics
   * Neil W. Ashcroft & N. David Mermin, Solid State Physics
 * Kelly, J. S. (2015). Fault-tolerant superconducting qubits.
+* David M. Pozar Microwave Engineering
+* Michael T. Heath, Scientific Computing
+
+### Theses & reviews
+
+Social:
+-------
+- KEVIN D. MITNICK & William L. Simon, The Art of Deception
 
 Planned:
 --------
 
-* David M. Pozar Microwave Engineering
 * Matthew D. Schwartz, Quantum Field Theory and the Standard Model
 * Peter Y. Yu & Manuel Cardona, Fundamentals of Semiconductors
-* Michael T. Heath, Scientific Computing
 
 ## Note
 
