@@ -1,0 +1,308 @@
+%!TEX program = xelatex
+% ****** Start of file TLGtheory.tex ******
+%
+
+\documentclass[%
+ reprint,
+%superscriptaddress,
+groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+showpacs,
+%preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{hyperref}% add hypertext capabilities
+\usepackage{braket}
+
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%text={7in,10in},centering,
+%margin=1.5in,
+%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+% all eps files are in the figures 
+\graphicspath{{figures/}}
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{On the possible explanations of the spacetime signature}% 
+%\thanks{}%
+
+\author{Wentao Jiang}%
+ \email{jwt13@mails.tsinghua.edu.cn}
+
+ \affiliation{%
+2013011717, Department of Physics, Tsinghua University, Beijing 100084, China
+}%
+
+\date{\today}
+
+\begin{abstract}
+In this paper, I briefly summarize two different approaches on the possible explanations of the spacetime signature. The first approach is based on symmetries of the operator of equations of motion. By adopting several assumptions on the operator, the metric in four-dimensional spacetime can be determined to be Lorentzian. The second approach starts from the path integral formalism and generalized the signature to have a phase factor $ \mathrm{exp}(i \theta) $ which interpolates the Euclidean and Feynman path integral. The phase factor is treated as a dynamic field and the signature is determined by its expected value according to the effective potential, which uniquely singles out both Lorentzian signature and the dimensionality.
+%\begin{description}
+%\item[PACS numbers]
+%May be entered using the \verb+\pacs{#1}+ command. 
+%\end{description}
+\end{abstract}
+                             % Classification Scheme.
+%\keywords{Suggested keywords}%Use showkeys class option if keyword
+                              %display desired
+\maketitle
+
+% \tableofcontents
+
+\section{Introduction} % (fold)
+\label{sec:introduction}
+
+From matrix algebra, it's known that an arbituary real symmetric matrix $M$ is similar to a diagonal matrix $D$ with values $\pm 1$ and $0$ as the diagonal elements, i.e., $ M = SDS^T $ where $S$ is a real-valued matrix. When the metric of general relativity is considered, the corresponded diagonal elements are known as the ``signature''. To be explicit, the metric in flat spacetime (or in the tagent space) is widely considered to have a Lorentzian signature $ \eta=\mathrm{diag}[-1,1,1,1] $ for our universe.
+
+Our conception of this world is also strongly connected with the idea that we have just one time direction, such as the concept of `before' and `after'. However, the general relativity, i.e., the Einstein field equation $ R_{\mu\nu}-\frac{1}{2}R = 8 \pi G T_{\mu \nu} $ has no particular restriction on spacetime signature. Hence in classical general relativity, nothing fixes the spacetime to be Lorentzian. As an example, there are classical solutions showing a signature-changing process.\cite{0264-9381-9-6-011} In quantum field theory, the Lorentzian spacetime signature is mostly taken as given. Hence further consideration is worth and various approaches have been carried out on this topic.
+
+In this paper, I read several related work on this topic and selected two of those approaches which look both interesting and profound to me. In sec.~\ref{sec:starting_from_assumptions_about_the_equations_of_motion}, a microscopic approach is adopted to derive the signature as resulting from properties of the equations of motion operator.\cite{MankocBorstnik2000314,0305-4470-35-49-306} Section~\ref{sec:treating_} introduces work done by J. Greensite \textit{et. al}\cite{Greensite199334,PhysRevD.49.866} which derives the Lorentzian signature by considering a general metric $ \eta_{ab} = \mathrm{diag}[e^{i \theta},1,1,1] $ and treating the phase factor $ \mathrm{exp}(i \theta) $ as a dynamical field.
+
+% section introduction (end)
+
+\section{Starting from assumptions about the equations of motion} % (fold)
+\label{sec:starting_from_assumptions_about_the_equations_of_motion}
+
+In this approach, the authors considered the equations of motion operator and assumed it to be (i)Hermitian, (ii)linear in the d-momentum $ p^{\mu} $ and (iii)to have eigenvectors in the internal space within the irreducible representation of the Lorentz group. The Hermiticity guarantees real energy levels and conservation of energy. Linearity in $ p^{\mu} $ is proved for massless particles in even-dimensional space\cite{gornik2001linear} and in general dimension.\cite{SIEGEL1987125} The third requirement leads to a choice of operators which the equations of motion operator should commute with. The authors selected the operator of handedness, which is also the Casimir of the Lorentz group in a generalized form for arbituary dimension.
+
+As a direct consequence of this approach, the authors also showed the mass protection mechanism, which turns out to only occur in even-dimentional spaces. In odd-dimensional spaces, massive and massless make no difference on the solution space of equations of motion.
+
+
+\subsection{Equations of motion operator} % (fold)
+\label{sub:equations_of_motion_operator}
+
+For massless spinors preserving the Poincar\'e symmetry, the state satisfies equations of motion, which can be written in a general form
+\begin{equation}
+	\label{eqn:EOM}
+	[f^a (S^{cd}) p_a ]\ket{\psi} = 0
+\end{equation}
+where $a = 0,1,2,...,d $ and $ f^a $ for each $a$ is a function of the generators of the Lorentz transformation $ S^{ab} $ in the internal space of spin degrees of freedom. As an example, Spin-$ \frac{1}{2} $ fermions in four dimensional spacetime obey the well-known Dirac equation.
+
+The total generators of the Lorentz transformations compose of generators of the Lorentz transformations in ordinary space and in `internal space': $ M^{ab} = L^{ab} + S^{ab} $, where $ L^{ab} =x^ap^b-x^bp^a $ and both $ L^{ab} $ and  $ S^{ab} $ obey the Lorentz algebra $ [M^{ab} ,M^{cd} ] = -i \left ( \eta^{ac} M^{bd} - ( a \leftrightarrow b ) \right ) - (c \leftrightarrow d) $. $ \eta^{ab} = \mathrm{diag} [ \eta^{00}, \eta^{11},..., \eta^{dd} ] $ is a metric tensor with $ (\eta^{aa})^2 = 1 $ for each $a$. In order to have an equations of motion operator depends only linear in $ p_a $, $f^a$ can only depend on $S^{ab} $.
+
+For spinors considered here, the generators $ S^{ab} $ can be expressed in  terms of $ \gamma $ operators, which fulfill the Clifford algebra
+\begin{equation}
+\label{eqn:GammaAntiComRelation}
+\{ \gamma^{\mu}, \gamma^{\nu} \} = 2 g^{\mu \nu}
+\end{equation}
+by the relation $ S^{\mu \nu} = \frac{i}{4} [ \gamma^{\mu}, \gamma^{\nu} ]  = \frac{i}{2}( \gamma^\mu \gamma^\nu - \eta^{\mu \nu} ) $, hence $ \{ S^{ab},S^{cd} \}= \frac{1}{2} \eta^{aa} \eta^{bc} $. The equations of motion can now be written as
+\begin{equation}
+\label{eqn:EOM_with_D}
+\mathcal{D}(\gamma^b)\gamma^a p_a = 0.
+\end{equation}
+The Hermiticity condition then is
+\begin{equation}
+\label{eqn:Hermiticity_cond}
+\gamma^{a\dagger}(\mathcal D (\gamma^b))^{\dagger} = \mathcal D (\gamma^b) \gamma^a.
+\end{equation}
+Take the Hermit conjugate of Eq.~(\ref{eqn:GammaAntiComRelation}) and use the Unitarity of $\gamma^a $, it's easy to show that
+\begin{equation}
+\label{eqn:gamma_dagger}
+\gamma^{a\dagger} = \eta^{aa} \gamma^a
+\end{equation}
+and $ S^{ab\dagger} = \eta^{aa} \eta^{bb} S^{ab} $. Following Eq.~(\ref{eqn:Hermiticity_cond}) and Eq.~(\ref{eqn:gamma_dagger}), the Hermiticity condition becomes
+\begin{equation}
+\label{eqn:Hermiticity_cond_2}
+(\mathcal D (\gamma^b))^{\dagger} = \gamma^a \mathcal D (\gamma^b) \gamma^a.
+\end{equation}
+According to Ref.~[\onlinecite{gornik2001linear}], the operator of handedness can be expressed in terms of $ \gamma^a $ for any dimensional space as
+\begin{equation}
+\label{eqn:handednessOperator}
+\Gamma = i^{\lfloor d/2\rfloor} \prod_a \sqrt{\eta^{aa}}\gamma^a
+\end{equation}
+where the product of $ \gamma^a $ is carried out in the rising order with respect to index $a$ and the phase of $\Gamma $ is chosen so that $\Gamma $ is Hermitian and its square is the unit operator, i.e., $ \Gamma^{\dagger} = \Gamma $ and $ \Gamma^2 = I $.
+
+As a consequence,
+\begin{equation}
+\label{eqn:Gamma_gamma}
+\{ \Gamma, \gamma^a \}_{\pm} = 0
+\end{equation}
+where the $+$ is for even-dimensional space and $-$ for odd-dimensional space. It immediately yields $ [\Gamma, S^{ab}] = 0 $, which shows that $\Gamma $ is a Casimir of the Lorentz group.
+
+
+	
+% subsection equations_of_motion_operator (end)
+
+
+\subsection{Reducibility of representations} % (fold)
+\label{sub:reducibility_of_representations}
+
+
+In addition to Hermiticity, now let's take into account the reducibility by letting the operator of equations of motion to commute with the operator of handedness
+\begin{equation}
+[\Gamma, \mathcal{D}(\gamma^b)\gamma^a p_a ] = [ \Gamma, \mathcal{D}\gamma^a  ] = 0
+\end{equation}
+where the second equality is to be satisfied for each $a$ and $\mathcal D $'s dependency on $\gamma^b $ is suppressed for short. Multiply the equation with $\Gamma $ and note $\Gamma $'s property and its commute/anticommute relation with $\gamma^a $, the equation becomes
+\begin{eqnarray}
+	 \mathcal D \gamma^a + \Gamma^{-1} \mathcal D \Gamma \gamma^a &= 0&\text{ for even }d,\label{eqn:reducibility_even} \\
+	 \mathcal D \gamma^a - \mathcal D \gamma^a &= 0&\text{ for odd }d.
+\end{eqnarray}
+The conclusion is that in odd-dimensional spaces the reducibility requirement leads to no
+limitation whatsoever on the signature of the metric. For even dimensional space, using Eq.~(\ref{eqn:Hermiticity_cond_2}), it's easy to show
+\begin{equation}
+\Gamma^{-1} \mathcal D \Gamma = (\gamma^d)^{-1}...(\gamma^0)^{-1} \mathcal  D \gamma^0 ... \gamma^d = \mathcal D \prod_a \eta^{aa}.
+\end{equation}
+Together with Eq.~(\ref{eqn:reducibility_even}), the reducibility for even-dimensional space leads to $ \prod_a \eta^{aa}=-1 $.
+
+As a result, in even-dimensional spaces, solutions of equations of motion
+can only have well-defined handedness in spaces of odd-time and odd-space signatures. In our four dimensional spacetime, the only possible solution is one time and three space signature\footnote{the reverse(three time and one space) is also possible, which is not important as a difference in the overall sign}, which is exactly the Lorentz signature.
+
+% subsection reducibility_of_representations (end)
+
+
+\subsection{Mass protection mechanism} % (fold)
+\label{sub:mass_protection_mechanism}
+
+This section is a little deviated from the topic, but I still include it because the same approach is adopted to show that the different dimension together with some reasonable assumptions on the equations of motion can restrict the possible particle type, which is quite interesting.
+
+The Dirac equation $ (\gamma^a p_a - m)\ket{\psi} $ is considered first. If we insist on the irreducibility assumption, we can restrict the state space to one certain handedness by applying the projection $ \frac{1}{2}(1\pm \Gamma) $, for example,
+\begin{equation}
+ \mathcal D (\gamma^a p_a - m ) \frac{1}{2} (1- \Gamma) \ket{\psi}.
+\end{equation}
+
+For the projected Dirac equation to be irreducible, the above equation is expected to map a state from the subspace $\frac{1}{2} (1- \Gamma) \ket{\psi}$ to the same subspace, i.e., the resulting state should give zero after applying projection $ \frac{1}{2}(1+ \Gamma) $. The requirement is hence
+\begin{equation}
+\frac{1}{2}(1+ \Gamma)\mathcal D (\gamma^a p_a - m ) \frac{1}{2} (1- \Gamma) = 0
+\end{equation}
+for any $ p_a $, which is equivalent to $ [\Gamma, \mathcal D m ] =0$ and $ [\Gamma, \mathcal D \gamma^a]=0 $.
+
+From Eq.~(\ref{eqn:Gamma_gamma}), we can see that the above two requirements cannot be simutaneously satisfied for even-dimenstional space, except for $m=0$. In contrast, in case of odd-dimension, any mass is allowed and the massive and massless Dirac equations have solutions within the same space of states. The prevention of mass in even-$d$ is the so-called mass protection. If the not-forbidden parameters can take values of fundamental scale, Plank mass for the mass of the particles discussed here, then in odd-dimentional space the spin-$\frac{1}{2} $ particles are too massive to be observed.
+
+
+
+% subsection mass_protection_mechanism (end)
+
+
+% section starting_from_assumptions_about_the_equations_of_motion (end)
+
+
+\section{Treating ``Wick angle'' as a dynamical variable} % (fold)
+\label{sec:treating_}
+
+
+In this section, the tetrad formalism is adopted so that the metric can be expressed in terms of tetrads as $ g_{\mu\nu} = e^{a}_{\mu} \eta_{ab} e^{b}_{\nu} $ with $ \eta_{ab} $ is taken to be $ \mathrm{diag}[-1,1,1,1] $. A general metric $ \eta_{ab} = \mathrm{diag}[e^{i \theta},1,1,1] $ is then considered and the phase factor $ \mathrm{exp}(i \theta) $ is treated as a dynamical field. By obtaining the effective potential $ V(\theta) $ for the phase field, the spacetime signature is determined by the expectation value of $\theta $.
+
+A general relativistic quantum theory is to evaluate Feynman path integrals of the form
+\begin{equation}
+Z_F = \int d \mu (e,\phi,\psi,\bar \psi) \mathrm{exp} \left (-i\int d^D x \sqrt{-g} \mathcal L \right )
+\end{equation}
+with $ \eta_{ab} $ fixed and $ d \mu $ is the integration measure for the tetrads $ e$, other bosonic fields $ \phi $ and fermionic fields $ \psi $. In order to improve the convergence, a rotation of time axis $ t \rightarrow it $ is frequently adopted and gives the Euclidean path integral
+\begin{equation}
+Z_E = \int d \mu (e,\phi,\psi,\bar \psi) \mathrm{exp} \left (-\int d^D x \sqrt{g} \mathcal L \right )
+\end{equation}
+and the corresponded $ \eta_{ab} = \mathrm{diag}[1,1,...,1] $.
+
+Looking at $Z_F$ and $Z_E$, it's easy to write down a more general path integral which interpolates between them
+\begin{equation}
+\label{eqn:general_path_int}
+Z = \int d \mu (e,\phi,\psi,\bar \psi) \mathrm{exp} \left (-i\int d^D x \sqrt{g} \mathcal L \right )
+\end{equation}
+where
+\begin{equation}
+\label{eqn:eta_ab_general}
+\eta_{ab} = \mathrm{diag}[e^{i \theta},1,...,1].
+\end{equation}
+It gives the Euclidean path integral for $ \theta=0 $ and the Feynman path integral for $\theta = \pi $. The previously mentioned substitution $ t \rightarrow it $ should be viewed as a continuation in signature $ \eta_{ab} $ rather than just a rotation in $t$, and this point of view is more explicit in the general form as in Eq.~(\ref{eqn:eta_ab_general}).
+
+If we view the phase factor $ \mathrm{exp}(i \theta) $ as a dynamical field in its own right, the signature of spacetime will be determined dynamically. Some assumptions is required to integrate all other fields to obtain the effective potential $ V(\theta) $ for the $ \mathrm{exp}(i \theta) $ phase field. In Ref.~\onlinecite{PhysRevD.49.866,Greensite199334}, two assumptions were adopted and the effective potential is calculated for massless fields at one-loop level. The assumptions are as following:
+\begin{itemize}
+	\item For free fields of mass m, the contributions to Z in
+Eq.~(\ref{eqn:general_path_int}) from each (propagating) bosonic degree of freedom
+are equal, and inverse to the contribution from each
+fermionic degree of freedom.\\
+	\item The integration measure for the scalar fields is given by the real valued, invariant volume-measure (DeWitt
+measure) in superspace $d \mu(\phi)=D \phi\sqrt{|G| } $, where $G$ is the
+determinant of the scalar field supermetric $G(x,y)
+=\sqrt g \delta (x -y)$.
+\end{itemize}
+
+For the one-loop contribution $V_S( \theta )$ due to a massless scalar field $\phi $ in a flat backgraound $ e^a_\mu = \delta^a_\mu $
+\begin{equation}
+\label{eqn:scalar_one_loop}
+\mathrm{exp} \left (-\int d^D x V_0(\theta) \right ) = \mathrm{det}^{-1/2}(-\sqrt{\eta} \eta^{ab} \partial_a \partial_b ),
+\end{equation}
+the $ V_S (\theta) $ can be calculated following the heat-kernel regulation,\cite{PhysRevD.49.866} which turn out to be
+\begin{equation}
+V_S(\theta) = - \frac{\Lambda^D}{D(4 \pi)^{D/2}} \mathrm{exp}[-i(D-2)\theta/4].
+\end{equation}
+
+For higher spin massless fields, the one-loop contribution from each massless bosonic field is given by the factor in Eq.~(\ref{eqn:scalar_one_loop}) but raised to the power $ n_B $, while for spinor field it is the same factor and raised to the power $-n_F$, where $n_B(n_F)$ is the number of bosonic(fermionic) propagating degrees of freedom. In total, the one-loop contribution to $V_{\mathrm{eff}}(\theta) $ is
+\begin{equation}
+V(\theta) = (n_F-n_B)\frac{\Lambda^D}{D(4 \pi)^{D/2}} \mathrm{exp}[-i(D-2)\theta/4]
+\end{equation}
+which is a complex potential. Therefore, we look for a value of $\theta $ which satisfies both (i) Re($V $) is a minimum and (ii) Im($V$) is stationary. Explicitly,
+\begin{eqnarray}
+	& \cos [(D-2)\theta/4]=0,\\
+	& \mathrm{min} \{ \mathrm{Re} [V(\theta)] \} = 0.
+\end{eqnarray}
+
+Five cases should be considered to solve the above conditions.
+\begin{enumerate}
+	\item $ n_F<n_B $. min $\mathrm{Re}[V]<0 \rightarrow $ no solution.
+	\item $n_F = n_B$ or $ D=2 $, no $\theta $ is preferred
+	\item $ n_F > n_B $ and $ (D-2)<2 $, then $ \mathrm{min} \{ \mathrm{Re} [V(\theta)] \}>0 $, no solution.
+	\item $ n_F > n_B $ and $ (D-2)>2 $, then $ \mathrm{min} \{ \mathrm{Re} [V(\theta)] \}<0 $, no solution.
+	\item $ n_F > n_B $ and $ D=2 $, $\theta = \pm \pi $.
+\end{enumerate}
+It appears that $ V(\theta) $ uniquely singles out both Lorentzian signature and the observed dimensionality of spacetime. However, there are also various subtleties such as the gravitational action is unbounded from below, which can be solved in such a way by various ideas such as stochastic stabilization to maintain the above results. Curved space time and massive fields can also be considered as generalizations and is discussed in more detail in Ref.~[\onlinecite{PhysRevD.49.866}]. Mass can lift the degeneracy for cases of $D=2$ and supersymmetry($n_F=n_B$). In addition, conditions with multiple ``Wick angles'' and other fluctuations violating Lorentzian invariance and energy conservation can be ruled out by experiment, see sec. III in Ref.~(\onlinecite{PhysRevD.49.866}).
+
+To conclude, if the number of fermionic
+degrees of freedom exceeds the number of bosonic
+degrees of freedom, then the real part of the effective
+potential is minimized and the imaginary part is
+stationary only for lorentzian signature, and only in
+$D = 4$ dimensions. 
+
+
+
+% section treating_ (end)
+
+
+\section{conclusion} % (fold)
+\label{sec:conclusion}
+
+In this paper, I briefly explored two different approaches on the possible explanations of the spacetime signature. Borstnik, N. M. and H. B. Nielsen's approach used an argument based on symmetries of the operator of equations of motion. Hermiticity, linearity and irreducibility is assumed and used to derive the result that the metric should satisfy $ \prod_a \eta_{aa}=-1$, hence resulting in one time and three space dimension for $D=4$.
+
+Carlini, A. and J. Greensite's work started from the path integral formalism and generalized the signature to have a phase factor $ \mathrm{exp}(i \theta) $ which interpolates the Euclidean and Feynman path integral. The phase factor is treated as a dynamic field and the signature is determined by its expected value according to the effective potential, which uniquely singles out both Lorentzian signature and the dimensionality $ D=4 $.
+
+
+% section conclusion (end)
+
+\begin{acknowledgments}
+Thank Prof. Hongjian He's teaching this semester. The class was very inspiring and the slices were of great help. Thank TA for the hard work of homework assignment, etc.
+\end{acknowledgments}
+
+\nocite{*}
+
+\bibliographystyle{apsrev4-1}
+\bibliography{QFT_dimension}% Produces the bibliography via BibTeX.
+
+\end{document}
+%
+% ****** End of file apssamp.tex ******
