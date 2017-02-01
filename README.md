@@ -20,10 +20,12 @@ Physics:
 * Michael T. Heath, Scientific Computing
 
 ### Theses & reviews
+- Grèzes, Cécile, et al. "Towards a spin-ensemble quantum memory for superconducting qubits." Comptes Rendus Physique 17.7 (2016): 693-704.
+- Braunstein, S. L. and P. van Loock (2005). "Quantum information with continuous variables." Reviews of Modern Physics 77(2): 513-577.
 * Kelly, J. S. (2015). Fault-tolerant superconducting qubits.
 * Aspelmeyer, M., et al. (2014). "Cavity optomechanics." Reviews of Modern Physics 86(4): 1391-1452.
 * Schuster, D. I. (2007). Circuit quantum electrodynamics.
-- Braunstein, S. L. and P. van Loock (2005). "Quantum information with continuous variables." Reviews of Modern Physics 77(2): 513-577.
+
 
 Social:
 -------
@@ -37,7 +39,7 @@ Planned:
 
 ## Note
 
-Oct 2016: stated using Markdown to take notes.
+Oct 2016: started using Markdown to take notes.
 
 TeX template from [CareF](https://github.com/CareF) and [REVTeX](https://journals.aps.org/revtex).
 
