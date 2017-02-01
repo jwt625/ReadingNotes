@@ -50,7 +50,7 @@ Training set, notations: $m, x, y$
 Hypothesis, Parameters, Cost function
 
 ## Test Graphviz
-Code:
+<!-- Code:
 ```dot
 digraph G {
 	TrSet[label="Training set";shape=rectangle;];
@@ -60,18 +60,23 @@ digraph G {
 	TrSet->LeAlgo->h;
 	x->h->y;
 }
-```
+``` -->
 Result:
 ```dot-parse
 digraph G {
 	TrSet[label="Training set";shape=rectangle;];
 	LeAlgo[label="Learning algorithm";shape=rectangle;URL="http://www.google.com";];
-	h;
+	h[shape=circle;label="hh";];
 	// connections
 	TrSet->LeAlgo->h;
 	x->h->y;
+	x->y;
 }
 ```
+
+
+
+
 Some other bloody code:
 ```javascript
 function highLight() {
