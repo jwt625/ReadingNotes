@@ -39,7 +39,7 @@ Planned:
 
 ## Note
 
-Oct 2016: started using Markdown to take notes.
+Oct 2016: started using Markdown. Conversion to HTML using [WPLT](https://github.com/jwt625/WPLT).
 
 TeX template from [CareF](https://github.com/CareF) and [REVTeX](https://journals.aps.org/revtex).
 
