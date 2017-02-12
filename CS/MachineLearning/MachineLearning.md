@@ -43,10 +43,10 @@ Two types of problem:
 digraph G {
 	graph [
 	rankdir = "LR";
-	bgcolor="black";
+	// bgcolor="black";
 	];
-	edge[color="white";fontcolor="white";];
-	node[color="white";fontcolor="white";];
+	// edge[color="white";fontcolor="white";];
+	// node[color="white";fontcolor="white";];
 
 	TrSet[label="Training set";shape=rectangle;];
 	LeAlgo[label="Learning algorithm";shape=rectangle;];
@@ -122,6 +122,24 @@ $\therefore$ try the largest $\alpha$ then use value a little bit smaller than t
 
 - combine features
 - change the behavior or curve of the hypothesis function to quadratic, cubic, square root, etc.
+
+### Normal Equation
+
+Normal equation formula:
+
+$$
+\theta = (X^T X)^{-1} X^Ty
+$$
+
+- no need to choose $\alpha$
+- no need to iterate
+- need to compute $(X^T X)^{-1} $, which is $O(n^3)$. Gradient descent: $O(n^2)$
+- slow if $n$ is very large
+
+Common causes of noninvertibility:
+- redundant features, where two features are nearly linearly dependent
+- too many features (e.g., $m\le n $)
+
 
 
 
