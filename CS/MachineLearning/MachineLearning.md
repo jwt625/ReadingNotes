@@ -140,17 +140,45 @@ Common causes of noninvertibility:
 - redundant features, where two features are nearly linearly dependent
 - too many features (e.g., $m\le n $)
 
+## Classification and representation
+
+Binary classification problem
+
+0 is also called the negative class, and 1 the positive class, and they are sometimes also denoted by the symbols “-” and “+.”
+
+Sigmoid/Logistic function:
+$$
+g(z) = \frac{1}{1+e^{-z}}
+$$
+
+$ h_{\theta}(x)= g(\theta^{T}x)=$ estimation probability that $y=1$ on input $x$ (linear regression).
 
 
+Decision Boundary
 
+Cost function: because $h_{\theta} $ is now nonlinear, a new convex cost function is needed instead of square sum. $\therefore$ Logistic regression cost function: (for single case)
+$$
+\mathrm{Cost}(h_{\theta}(x),y)=
+\left\lbrace
+\begin{array}{rl}
+-\log (h_{\theta}(x)) & y=1\cr
+-\log (1-h_{\theta}(x)) & y=0
+\end{array} 
+\right. = - y \log (h_{\theta}(x)) - (1-y) \log (1-h_{\theta}(x))
+$$
+$$
+\therefore J(\theta) = \frac{1}{m} \sum_{i=1}^{m}\mathrm{Cost}(h_{\theta}(x^{(i)},y^{(i)})) = - \frac{1}{m} \sum_{i=1}^m [ y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1-h_{\theta}(x^{(i)})) ]
+$$
 
+Gradient descent: $ \theta := \theta -\frac{\alpha}{m}X^T (g(X \theta)-\vec y) $
 
+Optimization algorithm:
+- Gradient descent
+- Conjugate gradient
+- BFGS
+- L-BFGS
 
-
-
-
-
-
+They are usually implemented and included in libraries, use them.
 
 
 
