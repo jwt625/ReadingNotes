@@ -170,7 +170,7 @@ $$
 \therefore J(\theta) = \frac{1}{m} \sum_{i=1}^{m}\mathrm{Cost}(h_{\theta}(x^{(i)},y^{(i)})) = - \frac{1}{m} \sum_{i=1}^m [ y^{(i)} \log (h_{\theta}(x^{(i)})) + (1-y^{(i)}) \log (1-h_{\theta}(x^{(i)})) ]
 $$
 
-Gradient descent: $ \theta := \theta -\frac{\alpha}{m}X^T (g(X \theta)-\vec y) $
+Gradient descent: $ \theta := \theta -\frac{\alpha}{m}X^T (g(X^T \theta)-\vec y) $
 
 Optimization algorithm:
 - Gradient descent
@@ -180,18 +180,60 @@ Optimization algorithm:
 
 They are usually implemented and included in libraries, use them.
 
+### Multiclass classification: one vs all
+<p>
+Train a logistic regression classifier $ h_{\theta}^{(i)} (x) $ for each class $i$ to predict the probability that $ y=i $.
+On new input $x$, choose class $i$ that maximize $ \mathrm{max}_i h_{\theta}^{(i)} (x)  $.	
+</p>
+
+E.g., fit three classifiers for three subclass.
 
 
 
+### Overfitting
 
 
+- underfit, high bias
+- just right
+- overfit, high variance
 
+too many features, fit the training set too well, fail to generalize to new examples
 
+Addressing overfiting:
+1. Reduce number of features
+	- Manually select features to keep
+	- Model selection algorithm
+2. Regularization
+	- Keep all features, but reduce magnitude/values of $ \theta_j$
+	- works well when we have a lot of features, each of which contributes a bit to the prediction
 
+#### Regularization
 
+Small values for parameters
 
+$$
+J(\theta) = \frac{1}{2m} \left [\sum^m_{i=1} ( h_{\theta}(x^{(i)}) - y^{(i)} )^2 + \lambda \sum^n_{j=1} \theta_j^2 \right ]
+$$
 
+$\therefore$ effectively keeping the fit model simple (the more $\theta_j \approx 0$, the smaller $J(\theta)$ is)
 
+Gradient descent (regularized):
+
+$$
+\displaystyle \theta_j := \theta_j(1-\alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}_j
+$$
+
+Normal equation (for linear regression):
+
+$$
+\theta = \left(X^T X +\lambda \left [\begin{array}{cccc}
+0&&&\cr
+&1&&\cr
+&&1&\cr
+&&&\ddots
+\end{array} \right ] \right)^{-1} X^Ty
+$$
+which can also fix non-invertibility of $X^TX$ for $ m \le n $.
 
 
 

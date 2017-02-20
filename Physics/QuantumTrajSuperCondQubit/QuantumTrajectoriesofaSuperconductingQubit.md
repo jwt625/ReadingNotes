@@ -13,6 +13,8 @@
 
 Jan 31, 2017
 
+$\require{AMSsymbols}$
+
 The experiments discussed in this thesis use superconducting circuits to study the process
 of measurement of a quantum system.
 
@@ -165,8 +167,35 @@ $$
 
 - Qubit: 3D transmon, $ T_1 = 30 \mu s \sim 100 \mu s $
 - bias up the paramp: single pump, double pump, flux-pumping; balance the two sidebands isn't trivial
-- displace the signal before paramp
+- displace the signal before paramp (eliminating the 'dumb signal')
 
+#### Calibration experiments
+
+- VNA, cavity response: low probe power: $ \omega_{\ket{0}} $; high powers ($\bar n \gg n_{crit} $): bare cavity freq $ \omega_r $
+- two-tone spectroscopy:
+	- scan pump freq across $\omega_q$
+	- at higher pump power, sharp peak appears at $ \omega_{0\rightarrow 2}/2 $, can be used to calc aharmonicity
+- time domain measurement:
+	- set optimal measurement freq $ \Omega_m = \omega_{\ket{0}} + \chi $
+	- set the amplification axis
+	- Rabi, obtain $\pi$ pulse length etc. and time scale depending on $ T_1, T_2^* $
+	- Ramsey, characterize qubit freq and dephasing time $ T_2^*$, $\pi/2$ pulse required. Oscillation freq is the detuning.
+	- $T_1$ measurement, $\pi$ pulse required
+- pulse calibration: $\pi/2$ pulse about $x, -y$ axis required. Fix pulse duration and scan gatting pulse voltage setpoint
+- heralded state preparation: projective measurement -> ground state? -> use the prepared state
+- AC stark shift calibration: $ \Delta \omega = 2 \chi \bar n $, measurement-induced dephasing: $ \Gamma_{\mathrm{MID}} = \frac{ 8 \chi^2 \bar n }{\kappa} $, which both can be measured by a Ramsey measurement
+
+
+### Questions
+
+Possibly typo?
+- P25 footnote
+- P29 eqn 3.1, 3.6, 3.7 (missing $i$?)
+
+Questions
+- P34, what (or how) is an external phase bias?
+- P59, how to set relative sideband amplitudes by relative phase of the modulation times on I and Q ports?
+- P61, Fig 5.6, where's the reflected signal from the cavity?
 
 
 
