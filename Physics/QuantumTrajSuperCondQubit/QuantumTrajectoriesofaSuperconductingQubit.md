@@ -163,6 +163,45 @@ $$
 \frac{\rho_{11}(t)}{\rho_{00}(t)} = \frac{P(1|V_m)}{P(0|V_m)} = \frac{P(1)}{P(0)} \frac{P(V_m|1)}{P(V_m|0)} = \frac{ \rho_{11}(0) }{\rho_{00}(0)} \frac{ \exp [ -( V_m(t) + \Delta V/2 )^2/2 \sigma^2 ] }{\exp [ -( V_m(t) -\Delta V/2)^2 /2 \sigma^2 ]}
 $$
 
+### Superconducting qubits and circuit QED
+
+Almost things you already know:
+- Derivation of the transmon qubit Hamiltonian
+- J-C Hamiltonian
+- Dispersive measurement
+- SNR:
+$$
+S \equiv \left ( \frac{\Delta V_{\mathrm{opt}}}{\sigma} \right )^2 = \frac{64 \chi^2 \bar n \eta_m T}{\kappa}
+$$
+where
+- standard deviation of the measurement histograms $\sigma = \sqrt{G/\kappa \eta T} $
+- separation between the histograms in the limit of small $\chi/\kappa$ is $ V_{\mathrm{opt}} = \sqrt G \Delta X_2 = 8 \chi \sqrt{G \bar n} /\kappa $
+
+### Parametric amplifiers and squeezing
+
+Two types of amplification:
+- phase-preserving: $ (\Delta X_{1,2}) _ \mathrm{out}  = \sqrt G \sqrt{\Delta X_{1,2}+1} $, add extra vacuum noise because of measuring both quadratures
+- phase-sensitive: minimum uncertainty input $\rightarrow$ minimum uncertainty output
+\begin{eqnarray}
+(\Delta X_1)_ \mathrm{out} &=& \frac{1}{2\sqrt G} \Delta X_1\cr
+(\Delta X_2)_ \mathrm{out} &=& 2 \sqrt G \Delta X_2
+\end{eqnarray}
+
+Josephson parametric amplifiers:
+
+- Hamiltonian: $ H_{\mathrm{JPA}} = \hbar \omega_0 a^\dagger a + \hbar \frac{K}{2} (a^\dagger)^2 a^2 $
+- Adding strong drive: $ H_d = \epsilon_d e^{-i \omega_d t} a^\dagger + h.c. $
+- Displace $ a \rightarrow \alpha + d $ and ignore higher order terms: $ H_{\mathrm{sys}}^{(2)} = \tilde \Delta d^\dagger d + \frac{\lambda}{2} (d^{\dagger 2}+d^2) $. (superscript means to the second order in $d$) i.e., the squeezing Hamiltonian
+
+Performance: gain $G$, band width $B$ and dynamic range
+- $ B \sqrt G \propto \frac{1}{Q} $, hence decrease $Q$
+- However, decreasing $Q$ requires higher power to obtain large amplitude, which will excite higher-order non-linearities
+- Hence approximately $ Qp \gtrsim 5 $, where $p = L_J/L_{\mathrm{tot}}$ is the participation ratio of the Josephson inductance to the total inductance
+- signal power at which the gain is reduced by 1dB is known as the '1dB compression point' and determines the dynamic range of the amp
+
+
+
+
 ### Experimental setup
 
 - Qubit: 3D transmon, $ T_1 = 30 \mu s \sim 100 \mu s $
@@ -186,6 +225,29 @@ $$
 - AC stark shift calibration: $ \Delta \omega = 2 \chi \bar n $, measurement-induced dephasing: $ \Gamma_{\mathrm{MID}} = \frac{ 8 \chi^2 \bar n }{\kappa} $, which both can be measured by a Ramsey measurement
 
 
+### Tracking individual quantum trajectories
+
+Quadrature-dependent measurement backaction
+- for small $\chi/\kappa$, $X_1$ determines field amplitude; $X_2$ determines phase
+- amplify $X_2$: squeeze $X_1$, rate of information extraction $ \Gamma_{meas} \equiv 1/\tau = 2 \Gamma_{Heis} = 2 \Gamma_{MID} $
+- amplify $X_1$: squeeze away $\hat \sigma_z$ information contained in $X_2$, no measurement backaction
+
+Correlation between measurement outcomes and the qubit state (using Bayesian state update)
+- state update equations for two kinds of measurement
+- conditional quantum state tomography:
+	- Aim: using tomography to verify the prediction on state after measurement
+	- Method: do tomography on states after the same measurement with approximately same measurement outcome
+- calculate the quantum trajectory:
+	- calculate the updated state after the measurement
+	- do conditional quantum state tomography on every possible measurement outcome value
+	- they agree quite well (Fig. 6.2)
+- Trajectories under driven evolution
+	- use sequential two-step procedure to update the qubit state after each time step
+	- same conditional quantum state tomography
+	- obtained good agreement (Fig. 6.7)
+- Comparing Bayesian trajectories to SME trajectories
+	- agree well (Fig 6.8)
+
 ### Questions
 
 Possibly typo?
@@ -194,6 +256,7 @@ Possibly typo?
 
 Questions
 - P34, what (or how) is an external phase bias?
+- P50, Eqn(4.15), term $ \Delta_d \alpha (d+d^\dagger) $ absorbed into freq?
 - P59, how to set relative sideband amplitudes by relative phase of the modulation times on I and Q ports?
 - P61, Fig 5.6, where's the reflected signal from the cavity?
 
