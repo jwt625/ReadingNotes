@@ -4,6 +4,7 @@ Since Mar 20, 2016
 
 This is a collection of my book reading notes. Notes taken while reading thesis/review might also be included.
 
+For notes written in Markdown, I recommend a Chrome extension [Github with Mathjax](https://chrome.google.com/webstore/detail/github-with-mathjax/ioemnmodlmafdkllaclgeombjnmnbima/related) to render equations written in TeX. You might need to refresh the page once.
 
 Physics:
 ------------

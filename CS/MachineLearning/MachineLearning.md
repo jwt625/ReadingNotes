@@ -236,6 +236,9 @@ $$
 which can also fix non-invertibility of $X^TX$ for $ m \le n $.
 
 
+Regularized gradient descent for Logistic regression:
+- almost the same as before
+- the same extra term as in linear regularized gradient descent
 
 <!-- ## Test Graphviz
 

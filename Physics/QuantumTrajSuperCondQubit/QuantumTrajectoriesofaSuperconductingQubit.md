@@ -248,6 +248,12 @@ Correlation between measurement outcomes and the qubit state (using Bayesian sta
 - Comparing Bayesian trajectories to SME trajectories
 	- agree well (Fig 6.8)
 
+### Ensembles of trajectories
+
+This chapter investigate the interplay between measurement backaction and unitary dynamics
+
+
+
 ### Questions
 
 Possibly typo?
