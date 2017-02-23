@@ -1,4 +1,15 @@
 
+```noteinfo
+{
+	"date": {
+		"y": 23,
+		"m": 2,
+		"d": 2017
+	},
+	"tag": ["others"]
+}
+```
+
 ## Fancy Stuff
 
 ### Computer related

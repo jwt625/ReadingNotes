@@ -1,9 +1,3 @@
-# Machine Learning
-
-From [coursera](https://www.coursera.org/learn/machine-learning)
-
-
-Started on Jan 29, 2017.
 ```noteinfo
 {
 	"date": {
@@ -11,9 +5,17 @@ Started on Jan 29, 2017.
 		"m": 1,
 		"d": 30
 	},
-	"tag": ["study", "other"]
+	"tag": ["study", "other", "CS"]
 }
 ```
+
+# Machine Learning
+
+From [coursera](https://www.coursera.org/learn/machine-learning)
+
+
+Started on Jan 29, 2017.
+
 
 [toc]
 

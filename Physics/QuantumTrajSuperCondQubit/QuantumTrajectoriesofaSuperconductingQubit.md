@@ -252,6 +252,10 @@ Correlation between measurement outcomes and the qubit state (using Bayesian sta
 
 This chapter investigate the interplay between measurement backaction and unitary dynamics
 
+Approach:
+- solve SME numerically at a large number of times and perform statistical analysis
+- action principle
+
 
 
 ### Questions
