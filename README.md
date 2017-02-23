@@ -21,6 +21,7 @@ Physics:
 * Michael T. Heath, Scientific Computing
 
 ### Theses & reviews
+- Weber, S. J., et al. (2015). "Quantum trajectories of superconducting qubits." arXiv preprint arXiv:1506.08165. [See notes](https://github.com/jwt625/ReadingNotes/blob/master/Physics/QuantumTrajSuperCondQubit/QuantumTrajectoriesofaSuperconductingQubit.md).
 - Grèzes, Cécile, et al. "Towards a spin-ensemble quantum memory for superconducting qubits." Comptes Rendus Physique 17.7 (2016): 693-704.
 - Braunstein, S. L. and P. van Loock (2005). "Quantum information with continuous variables." Reviews of Modern Physics 77(2): 513-577.
 * Kelly, J. S. (2015). Fault-tolerant superconducting qubits.
