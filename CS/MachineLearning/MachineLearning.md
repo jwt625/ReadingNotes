@@ -266,7 +266,116 @@ digraph G {
 }
 ``` -->
 
+## Neural networks
 
+Motivations
+- nonlinear features/hypothesis
+- too many features
+
+Background
+- origin: algorithms try to mimic the brain
+- state-of-the-art approach for many application
+- "one learning algorithm" hypothesis: auditory cortex can learn to see from neural re-wire experiment
+
+
+### Model representation
+
+Model a neuron as a logistic unit
+```dot-parse
+digraph G {
+	graph[rankdir="LR";
+		bgcolor="black";];
+
+	edge[color="white";fontcolor="white";];
+	node[color="white";fontcolor="white";];
+
+	a[label="";shape=circle];
+	"$x_1$"->a;
+	"$x_2$"->a;
+	"$x_3$"->a;
+	a->"$h_{\\theta}(x)$";
+}
+```
+
+$x_0$: bias unit, always equals to 1, might not draw it
+
+$\theta$: sometimes called parameters or `weights`
+
+Neural network is just a group of neutons strong together:
+
+```dot-parse
+digraph G {
+	graph[rankdir="LR";
+		bgcolor="black";];
+
+	edge[color="white";fontcolor="white";];
+	node[color="white";fontcolor="white";];
+
+	a[label="";shape=circle];
+	x1[label="$x_1$"];
+	x2[label="$x_2$"];
+	x3[label="$x_3$"];
+	a1[label="$a_1^{(2)}$"];
+	a2[label="$a_2^{(2)}$"];
+	a3[label="$a_3^{(2)}$"];
+	x1->a1->a;
+	x1->a2->a;
+	x1->a3->a;
+	l1[label="layer 1";shape=rectangle];
+	x2->a1;
+	x2->a2;
+	x2->a3;
+	l2[label="layer 2";shape=rectangle];
+	x3->a1;
+	x3->a2;
+	x3->a3;
+	l3[label="layer 3";shape=rectangle];
+	l1->l2->l3
+	a->"$h_{\\Theta}(x)$";
+	
+}
+```
+
+Layer 1 is also called the `input layer`. Final layer: `output layer`. Layer between (anything else): `hidden layer`.
+- $ a_i^{(j)} $: "acvitation" of unit $i$ in layer $j$
+- $ \Theta^{(j)} $: matrix of weights controlling function mapping from layer $j$ to layer $j+1$
+<p>
+$$
+ a^{(j+1)}_m =  g(\Theta^{(j)}_{mn} a^{(j)}_n )= g(z^{(j)} )$$
+</p>
+
+This is also called `forward propagation`.
+
+The hidden layer is effectively learning its own features and finally do logistic regression.
+
+The structure how the neural network is connected is called `architectures`.
+
+If numbers are drawn on the arrows, it's the corresponded $\Theta$ value.
+
+Easiest example: single layer neural network which simulate logic OR operation:
+
+```dot-parse
+digraph G {
+	graph[rankdir="LR";
+		bgcolor="black";];
+
+	edge[color="white";fontcolor="white";];
+	node[color="white";fontcolor="white";];
+
+	a[label="";shape=circle];
+	"$x_0$"->a[label="-10"];
+	"$x_1$"->a[label="20"];
+	"$x_2$"->a[label="20"];
+	a->"$h_{\\Theta}(x)$";
+
+}
+```
+
+Other logic operations can be constructed similarly.
+
+### Multi class classification
+
+Just modify the output layer to have more nodes. i.e., increase the dimension of $y$.
 
 
 

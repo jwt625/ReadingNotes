@@ -256,6 +256,33 @@ Approach:
 - solve SME numerically at a large number of times and perform statistical analysis
 - action principle
 
+Process to obtain the action (to use action principle):
+```dot-parse
+digraph G {
+	graph[rankdir="LR";
+		bgcolor="black";];
+
+	edge[color="white";fontcolor="white";];
+	node[color="white";fontcolor="white";];
+
+	"deterministic qubit state evolution"->"write probability as delta function"->"fourier transform"->"add probability of measurement result"
+}
+```
+
+Not understand well, anyway they obtained the action $S$ and the resulting ODE:
+\begin{eqnarray}
+	\dot x &=&  - \gamma x + \Omega z - x z r/\tau \cr
+	\dot z &=& \Omega x +(1-z^2)r/\tau \cr
+	\dot p_x &=& \gamma p_x +\Omega p_z + p_x z r / \tau \cr
+	\dot p_z &=& - \Omega p_x +(p_x x+2p_z z-1)r/\tau
+\end{eqnarray}
+which has analytic solution (see Eqn 7.13~7.15) for $ \Omega \ne 0 $. So the optimal quantum path is obtained.
+
+From it, the most likely time can be calculated (time when the trajectory evolve to yield maximum $P(z_F|z_I) $).
+
+#### Distribution of quantum trajectories
+- Define closeness of any two trajectories
+- calculate it between all possible pairs of trajectories and search for $N$ trajectories with lowest average distance
 
 
 ### Questions
