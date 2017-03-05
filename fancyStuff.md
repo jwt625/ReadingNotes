@@ -12,6 +12,10 @@
 
 ## Fancy Stuff
 
+### Physics related
+
+- Les Houches Summer School: [École de Physique des Houches](https://houches.univ-grenoble-alpes.fr/), [Lecture Notes of the Les Houches Summer School](https://global.oup.com/academic/content/series/l/lecture-notes-of-the-les-houches-summer-school-lnlh/?cc=us&lang=en&)
+
 ### Computer related
 
 #### File convert/process

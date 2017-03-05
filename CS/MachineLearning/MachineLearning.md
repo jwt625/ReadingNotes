@@ -380,4 +380,50 @@ Just modify the output layer to have more nodes. i.e., increase the dimension of
 
 
 
+## Cost func and backpropagation
+
+cost function
+
+<p>
+$$
+	J(\Theta)  = - \frac{1}{m} \left [ \sum^m_{i=1} \sum^K_{k=1} y_k^{(i)} \log ( h_{\Theta}(x^{(i)}) )_k + (1-y_k^{(i)} ) \log ( 1- (h_{\Theta}(x^{(i)}))_k  )   \right ]+\frac{\lambda}{2m} \sum^{L-1}_{l=1}\sum^{s_l}_{i=1}\sum^{s_l +1}_{j=1} \left (\Theta^{(l)}_{ji}  \right )^2
+$$	
+</p>
+
+Back propagation
+- Trainning set $ \lbrace (x^{(1)}, y^{(1)}) \cdots (x^{(m)}, y^{(m)})\rbrace $
+- Set $\Delta^{(l)}_{i,j} = 0$ for all $(i,j,l)$
+- For training examples 1 to m:
+	- Set $a^{(1)} := x^{(t)}$
+	- Perform forward propagation to compute $ a^{(l)} $ for l = 2, 3, ..., L
+	- Using $ y^{(i)} $, compute $\delta^{(L)} = a^{(L)} - y^{(t)}$
+	- <p>compute $ \delta^{(L-1)}, \delta^{(L-2)},\dots,\delta^{(2)}$ using $ \delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)}).\*a^{(l)}.\*(1 - a^{(l)})$</p>
+	- $\Delta^{(l)}\_{i,j} := \Delta^{(l)}\_{i,j} + a_j^{(l)} \delta_i^{(l+1)}$ or $ \Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^T $
+- $D^{(l)}\_{i,j} := \dfrac{1}{m}\left(\Delta^{(l)}\_{i,j} + \lambda\Theta^{(l)}\_{i,j}\right)$ if $ j \neq 0 $
+- $ D^{(l)}\_{i,j} := \dfrac{1}{m}\Delta^{(l)}\_{i,j} $ if$j=0$
+
+
+### Backprop in practice
+
+- unrolling parameters:
+```cpp
+thetaVec = [ Theta1(:); Theta2(:); Theta3(:)];
+DVec = [D1(:); D2(:); D3(:)];
+
+Theta1 = reshape(thetaVec(1:110),10,11);
+Theta2 = reshape(thetaVec(111:220),10,11);
+Theta3 = reshape(thetaVec(221:231),1,11);
+```
+
+- Use gradient check to prevent bugs in backprop, turn it off for training
+- random initialization: symmetry breaking
+- training a neural network
+	- architecture: \# of input unit: dimension of $x$, \# of output unit: number of classes. Reasonable default: 1 hidden layer
+	- randomly initialize
+	- implement foward propagate
+	- implement code to compute $J(\Theta)$
+	- implement backprop to compute partial derivatives
+	- use gradient check to compare partial derivatives, then disable gradient check
+	- use gradient descent or advanced optimization method with backprop to minimize $J(\Theta)$
+
 
