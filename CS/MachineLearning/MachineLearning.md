@@ -386,7 +386,7 @@ cost function
 
 <p>
 $$
-	J(\Theta)  = - \frac{1}{m} \left [ \sum^m_{i=1} \sum^K_{k=1} y_k^{(i)} \log ( h_{\Theta}(x^{(i)}) )_k + (1-y_k^{(i)} ) \log ( 1- (h_{\Theta}(x^{(i)}))_k  )   \right ]+\frac{\lambda}{2m} \sum^{L-1}_{l=1}\sum^{s_l}_{i=1}\sum^{s_l +1}_{j=1} \left (\Theta^{(l)}_{ji}  \right )^2
+	J(\Theta)  = - \frac{1}{m} \left [ \sum^m_{i=1} \sum^K_{k=1} y_k^{(i)} \log ( h_{\Theta}(x^{(i)}) )_k + (1-y_k^{(i)} ) \log ( 1- (h_{\Theta}(x^{(i)}))_k  )   \right ]+\frac{\lambda}{2m} \sum^{L-1}_{l=1}\sum^{s_l}_{i=1}\sum^{s_{l +1}}_{j=1} \left (\Theta^{(l)}_{ji}  \right )^2
 $$	
 </p>
 
@@ -425,5 +425,5 @@ Theta3 = reshape(thetaVec(221:231),1,11);
 	- implement backprop to compute partial derivatives
 	- use gradient check to compare partial derivatives, then disable gradient check
 	- use gradient descent or advanced optimization method with backprop to minimize $J(\Theta)$
-
+- good strategy for choosing $\epsilon_{init} = \sqrt 6 / ( \sqrt{ L_{in}+L_{out} } )$
 
