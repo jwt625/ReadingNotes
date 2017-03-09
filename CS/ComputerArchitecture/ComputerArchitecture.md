@@ -270,8 +270,23 @@ Boolean Algebra is Mathematical Basis
 	- Good for representing & manipulating sets
 
 
+### Integers
+
+- Encoding integers: `Unsigned` and `Two`
+- ranges: UMin (000...0) = 0, UMax (111...1) = $2^w-1$; TMin (100...0) = $-2^{w-1}$, TMax (011...1) = $ 2^{w-1}-1 $, other value: Minus 1: 111...1
+- For $w=16$, UMax = 65535 (FF FF), TMax = 32767 (7F FF), TMin = -32768 (80 00), -1 (FF FF), 0 (00 00)
+
+Observations
+- |TMin | 	= 	TMax + 1
+- Asymmetric range
+- UMax	=	2 * TMax + 1 
 
 
-
-
-
+C Programming
+- `#include <limits.h>`
+	- K&R App. B11
+- Declares constants, e.g.,
+	- ULONG_MAX
+	- LONG_MAX
+	- LONG_MIN
+- Values platform-specific

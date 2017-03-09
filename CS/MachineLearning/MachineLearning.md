@@ -427,3 +427,93 @@ Theta3 = reshape(thetaVec(221:231),1,11);
 	- use gradient descent or advanced optimization method with backprop to minimize $J(\Theta)$
 - good strategy for choosing $\epsilon_{init} = \sqrt 6 / ( \sqrt{ L_{in}+L_{out} } )$
 
+
+
+## Week6 (evaluating a LA, Bias vs Variance, Review and examples)
+
+[toc]
+
+### Evaluating a Learning algorithm
+
+Deciding what to try next
+
+#### Debugging a learning algorithm
+
+- get more training examples
+- try smaller set of features
+- try getting additional features
+- try adding polynomial features
+- try decreasing/increasing $\lambda$
+
+technique needed to rule some of the above possibilities
+
+
+#### Evaluating a hypothesis
+
+separate Dateset to training set and test set, perhaps 0.7 vs 0.3
+
+- learn with training set
+- compute test set error
+
+for classification, the error for one sample is either 1 or 0, depending on the predictiong turns out to be right or wrong. Then error rate can be calculated.
+
+
+#### Model Selection and train/validation/test sets
+
+split dataset to training/validation/test set, perhaps by 0.6, 0.2, 0.2
+
+Define training error $ J_{train} $, cross validation error $ J_{CV} $ and test error $ J_{test} $
+
+Use validation set to select between different models, then test on test set. The behavior of the model on the test set might be worse than on the validation set, because an extra factor (which model to choose) has been fitted on the validation set.
+
+
+### Bias vs. variance
+
+#### Diagnosing
+
+Bias (underfit):
+- $ J_{train} \approx J_{CV} $ and both are high
+
+Variance (overfit):
+- $ J_{CV} \gg J_{train} $
+
+
+#### Regularization
+
+Use model selection method to select regularization parameter $\lambda$
+
+
+
+#### Learning curve
+
+Plot training error vs training set size.
+
+$ J_{train} $ goes up (perfect fit for small data set) and $J_{CV} $ goes down (small data set results in non-generalizable fit), the two comes closer and closer.
+
+
+If a learning algorithm is suffering from high bias, getting more training data will not help much. $J_{train} $ and $J_{CV} $ will be both high and close to each other, not varying so much wrt training set size.
+
+As for high variance, $J_{train} $ will be low and $J_{CV} $ be high, their separation is high and decrease very slowly wrt training set size. But getting more training data can help.
+
+#### Decide what to do next
+
+
+- get more training examples: fix high variance
+- try smaller set of features: fix high variance
+- try getting additional features: fix high bias
+- try adding polynomial features: fix high bias
+- try decreasing/increasing $\lambda$: fix high bias/variance
+
+
+
+
+
+
+
+
+
+
+
+
+
+

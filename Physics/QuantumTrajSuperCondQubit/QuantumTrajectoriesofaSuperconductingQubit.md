@@ -225,6 +225,52 @@ Performance: gain $G$, band width $B$ and dynamic range
 - AC stark shift calibration: $ \Delta \omega = 2 \chi \bar n $, measurement-induced dephasing: $ \Gamma_{\mathrm{MID}} = \frac{ 8 \chi^2 \bar n }{\kappa} $, which both can be measured by a Ramsey measurement
 
 
+
+```dot-parse
+digraph G {
+	graph[rankdir="LR";
+		bgcolor="black";];
+
+	edge[color="white";fontcolor="white";];
+	node[color="white";fontcolor="white";];
+
+	SG1[label="Signal Generator"; shape=rectangle]
+	SG2[label="Signal Generator"; shape=rectangle]
+
+	mix1[label="IQ mixer"; shape=circle]
+	mix2[label="IQ mixer"; shape=circle]
+	mix3[label="IQ mixer"; shape=circle]
+
+	switch[label="RF switch"]
+
+	att1[label="-X dB"; shape=rectangle]
+	att2[label="-X dB"; shape=rectangle]
+
+	DCVolt[label="DC voltage"; shape=rectangle]
+
+	AWG[label="AWG"; shape=rectangle]
+
+	device[label="Device"; shape=rectangle]
+
+	amps[label="paramp->\n->HEMT->\n->RT amp"]
+
+	SG2->mix2->switch->att2
+	att2->device[label="projective measurement"]
+	AWG->mix2
+	AWG->switch
+
+	SG1->mix1->att1
+	att1->device[label="weak measurement"]
+	DCVolt->mix1
+	SG1->mix3
+	device->amps->mix3
+	mix3->ADC[label="I"]
+	mix3->ADC[label="Q"]
+
+}
+```
+
+
 ### Tracking individual quantum trajectories
 
 Quadrature-dependent measurement backaction
@@ -281,8 +327,31 @@ which has analytic solution (see Eqn 7.13~7.15) for $ \Omega \ne 0 $. So the opt
 From it, the most likely time can be calculated (time when the trajectory evolve to yield maximum $P(z_F|z_I) $).
 
 #### Distribution of quantum trajectories
+- use pre and post selection to create ensemble of system with chosen initial/final state
 - Define closeness of any two trajectories
 - calculate it between all possible pairs of trajectories and search for $N$ trajectories with lowest average distance
+
+Results:
+
+- distribution of un-driven trajectories obtained, showing most likely path agree with theory prediction. See Fig 7.2
+- $P(z_F|z_I=0) $ vs post-selection time agree with "most likely time"
+- distribution of driven trajectories obtained, in an intermediate parameter regime between quantum jumps and diffusive trajectories
+
+### Quantum efficiency and squeezing
+
+limiting factor of quantum efficiency in the author's case: imperfect squeezing
+
+Possible limitating factor on $\eta_{amp}$:
+1. gain too low to overcome the added noise of the HEMT
+2. insufficient paramp bandwidth
+3. loss in the paramp, dominated by the dielectric losses in the SiN_x capacitors, $Q\sim 5000$
+4. paramp could be hotter than the 20mK plate
+
+
+
+
+
+
 
 
 ### Questions

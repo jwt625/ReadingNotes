@@ -1,4 +1,4 @@
-
+﻿
 
 ```noteinfo
 {
@@ -22,6 +22,38 @@
 [toc]
 
 
+### Scalable ion-photon quantum interface based on integrated diffractive mirrors
+
+[npj quantum information](http://www.nature.com/articles/s41534-017-0006-6)
+
+
+- microfabricated trap with integrated diffractive mirrors
+- couples 4% fluorescence, three times better
+- overcomes mode quality limitations of existing integrated optical interconnects
+
+trapped ion:
+
+- coherence time approaching 1min
+- qubit gate error rate below $10^{-4}$
+- fluorescence:
+	1. state readout
+	2. create remote entanglement
+	- both of which only depend on the fluorescence collection efficiency
+
+
+Result
+
+- deposite Al on etched substrate
+- multi-zone micro-fabricated surface trap with integrated diffractive mirrors
+
+
+
+
+
+
+
+
+
 
 
 
@@ -37,7 +69,7 @@
 - Spacial distribution of $g$ agrees with simulation.
 
 
-- A typical movement of the positioning stage of 10 μm heated the refrigerator from its base temperature of 15 mK to over 85 mK. Most measurement done between 25 to 35mK
+- A typical movement of the positioning stage of 10um heated the refrigerator from its base temperature of 15mK to over 85mK. Most measurement done between 25 to 35mK
 
 
 - $T_1, T_2^* \sim 1\mu s$.
