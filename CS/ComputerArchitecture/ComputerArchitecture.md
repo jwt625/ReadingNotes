@@ -272,6 +272,8 @@ Boolean Algebra is Mathematical Basis
 
 ### Integers
 
+[toc]
+
 - Encoding integers: `Unsigned` and `Two`
 - ranges: UMin (000...0) = 0, UMax (111...1) = $2^w-1$; TMin (100...0) = $-2^{w-1}$, TMax (011...1) = $ 2^{w-1}-1 $, other value: Minus 1: 111...1
 - For $w=16$, UMax = 65535 (FF FF), TMax = 32767 (7F FF), TMin = -32768 (80 00), -1 (FF FF), 0 (00 00)
@@ -290,3 +292,145 @@ C Programming
 	- LONG_MAX
 	- LONG_MIN
 - Values platform-specific
+
+
+Values:
+- equivalence: same encoding for nonnegative values
+- uniqueness
+- can invert mappings (of course, from uniqueness)
+
+
+
+Mapping between Signed and Unsigned:
+- +/- range (range of unsigned) for negative values
+
+#### Sign Extension
+
+Task:
+Given w-bit signed integer x
+Convert it to w+k-bit integer with same value
+Rule:
+Make k copies of sign bit
+
+
+#### Summary: Expanding, Truncating: Basic Rules
+
+Expanding (e.g., short int to int)
+- Unsigned: zeros added
+- Signed: sign extension
+- Both yield expected result
+
+Truncating (e.g., unsigned to unsigned short)
+- Unsigned/signed: bits are truncated
+- Result reinterpreted
+- Unsigned: mod operation
+- Signed: similar to mod
+- For small numbers yields expected behavior
+
+#### Casting Signed to Unsigned
+
+Resulting Value
+- No change in bit representation
+- Nonnegative values unchanged
+- ux = 15213
+- Negative values change into (large) positive values
+- uy = 50323
+
+Constants
+- By default are considered to be signed integers
+- Unsigned if have “U” as suffix: `0U, 4294967259U`
+
+Expression Evaluation
+- If mix unsigned and signed in single expression, signed values implicitly cast to unsigned
+- Including comparison operations <, >, ==, <=, >=
+- Examples for W = 32. **understand the examples in ppt!**
+
+#### Why Should I Use Unsigned?
+
+Don’t Use Just Because Number Nonzero
+- Easy to make mistakes
+```c
+for (i = cnt-2; i >= 0; i--)
+  a[i] += a[i+1];
+```
+
+Do Use with the following scenarios
+- Bit vectors(flags)
+- Addresses
+- Multiprecision arithmetic
+- Working right up to limit of word size
+- ...
+
+#### Operations
+
+TAdd and UAdd have Identical Bit-Level Behavior
+
+TAdd: PosOver overflows to negative values and NegOver overflows to positive values.
+
+Detecting 2’s Comp. Overflow:
+
+Overflow iff either:
+- u, v < 0, s $\ge$ 0	(NegOver)
+- u, v $\ge$ 0, s < 0	(PosOver)
+
+
+Negating with Complement & Increment
+
+
+Claim: Following Holds for 2’s Complement
+- ~x + 1 == -x
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Homeworks
+
+using test environment:
+- login
+```shell
+ssh 2013011717@166.111.68.163 -p 2210
+```
+- copy from local to server (example)
+```shell
+scp -P 2210 bits.c  2013011717@166.111.68.163:/home/2013011717/tmp/datalab-handout
+```
+
+
+
