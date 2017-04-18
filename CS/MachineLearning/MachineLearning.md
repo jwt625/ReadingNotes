@@ -505,6 +505,49 @@ As for high variance, $J_{train} $ will be low and $J_{CV} $ be high, their sepa
 - try decreasing/increasing $\lambda$: fix high bias/variance
 
 
+### Machine Learning system design
+
+
+More systematic
+
+Error analysis:
+- manually exam the examples in the cross-validation set where your algorithm made errors on
+
+The importance of numerical evaluation
+- to determine between different ideas and versions of your algorithm
+
+Implement a quick and dirty implementation first, and then determine the next step/direction.
+
+
+Precision/Recall:
+- to fix fake accuracy increase because of unbalanced class (i.e., probabilities of occurrence are very different)
+- true positive: predicted positive & actual positive
+- predicted positive: true pos + false pos
+- actual pos: true pos + false neg
+- Precision: true positive/predicted positives
+- Recall: true positive/actual positive
+
+Good classifier: high precision and high recall.
+
+
+Trading off Precision and Recall
+- precision vs recall curve
+
+$F_1$ score: $ (P+R)/2 $ not good. Instead: $ 2PR/(P+R) $
+
+Large Data rationale
+
+### Support vector machine
+
+
+
+
+
+
+
+
+
+
 
 
 

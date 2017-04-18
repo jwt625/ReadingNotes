@@ -22,6 +22,173 @@
 [toc]
 
 
+
+### Ref links for superconducting qubits
+
+
+```dot-parse
+digraph G {
+	graph[rankdir="LR";
+		bgcolor="black";];
+
+	edge[color="white";fontcolor="white";];
+	node[color="white";fontcolor="white";shape=rectangle];
+
+	subgraph cluster_design {
+		
+		color = white;fontcolor="white";
+		label="design";
+
+		Barends2013[label="Barends2013, Coherent Josephson Qubit Suitable for Scalable Quantum Integrated Circuits"]		
+	}
+
+	subgraph cluster_app {
+		color = white;fontcolor="white";
+		label="Application";
+		
+		DiCarlo2009[label="DiCarlo2009, Demonstration of two-qubit algorithms with a superconducting quantum processor"]
+		DiCarlo2010[label="DiCarlo2010, Preparation and measurement of three-qubit entanglement in a superconducting circuit"]
+		Chow2014[label="Chow2014, Implementing a strand of a scalable fault-tolerant quantum computing fabric"];
+
+		Chow2012[label="Chow2012, Universal Quantum Gate Set Approaching Fault-Tolerant Thresholds with Superconducting Qubits"];
+
+	}
+
+	subgraph cluster_setup {
+		color = white;fontcolor="white";
+		label="Setup & fabrication";
+
+		Barends2011[label="Barends2011, Minimizing quasiparticle generation from stray infrared light in superconducting quantum circuits"]
+		Barends2010[label="Barends2010, Minimal resonator loss for circuit quantum electrodynamics"]
+		Megrant2012[label="Megrant2012, Planar superconducting resonators with internal quality factors above one million"]
+
+	}
+
+	subgraph cluster_simu {
+		color = white;fontcolor="white";
+		label="Theory & Simulation";
+
+		Strauch2003[label="Strauch2003, Quantum Logic Gates for Coupled Superconducting Phase Qubits"]
+		Wenner2011[label="Wenner2011, Surface loss simulations of superconducting coplanar waveguide resonators"]
+
+	}
+
+
+
+	subgraph cluster_characterization {
+		color = white;fontcolor="white";
+		label="characterization";
+
+		Houck2008[label="Houck2008, Controlling the Spontaneous Emission of a Superconducting Transmon Qubit"]
+		Schreier2008[label="Schreier2008, Suppressing charge noise decoherence in superconducting charge qubits"]
+		Gambetta2012[label="Gambetta2012, Characterization of Addressability by Simultaneous Randomized Benchmarking"];
+		Magesan2011[label="Magesan2011, Scalable and Robust Randomized Benchmarking of Quantum Processes"]
+
+	}
+
+
+	subgraph cluster_control {
+		color = white;fontcolor="white";
+		label="control";
+
+
+		Rigetti2010[label="Rigetti2010, Fully microwave-tunable universal gates in superconducting qubits with linear couplings and fixed transition frequencies"];
+		Corcoles2011[label="Corcoles2011, Protecting superconducting qubits from radiation"]
+
+	}
+
+
+	subgraph cluster_readout {
+		
+		color = white;fontcolor="white";
+		label="readout, tomography, signal processing";
+
+		Schuster2005[label="Schuster2005, ac Stark shift and dephasing of a superconducting qubit strongly coupled to a cavity field"]
+		Filipp2009[label="Filipp2009, Two-Qubit State Tomography Using a Joint Dispersive Readout"]
+		Reed2010[label="Reed2010, High-Fidelity Readout in Circuit Quantum Electrodynamics Using the Jaynes-Cummings Nonlinearity"]
+		Ryan2015[label="Ryan2015, Tomography via correlation of noisy measurement records"]
+
+	}
+
+
+
+	Chow2014->Gambetta2012[label="simutaneous randomized benchmarking for addressibility"]
+	Chow2014->Magesan2011[label="Clifford randomized benchmarking for single-qubit gates"]
+	Chow2014->Rigetti2010[label="ZX90 gates using the cross-resonance interaction"]
+	Chow2014->Chow2012[label="SDP and raw state reconstruction for fidelity calculation"]
+	Chow2014->Chow2012[label="gate calibration, quantum process tomography"]
+	Chow2014->Ryan2015[label="readout & signal process"]
+	Chow2014->Corcoles2011[label="two-qubit refocusing sequence for ZX90 gates"]
+
+
+	Barends2013->Reed2010[label="dispersive, high-power single-shot readout scheme"]
+	Barends2013->Barends2011[label="multi-stage infrared shielding"]
+	Barends2013->Barends2010[label="T1's dependence on capacitor width"]
+	Barends2013->Wenner2011[label="Loss simulation"]
+	Barends2013->Chow2012[label="T1 vary between qubits even on the same chip"]
+	Barends2013->Megrant2012[label="high Q resonator by MBE Al on oxygen-cleaned sapphire"]
+
+	DiCarlo2010->Schreier2008[label="transmon qubit"]
+	DiCarlo2010->Houck2008[label="isolation from EM environment"]
+	DiCarlo2010->Reed2010[label="readout"]
+	DiCarlo2010->DiCarlo2009[label="C-Phase gate"]
+	DiCarlo2010->Filipp2009[label="joint readout"]
+	DiCarlo2010->Strauch2003[label="C-Phase gate"]
+
+	Schreier2008->Schuster2005[label="spectroscopy"]
+
+}
+```
+
+
+
+### Coherent Josephson Qubit Suitable for Scalable Quantum Integrated Circuits
+
+Barends, R., et al. (2013). "Coherent Josephson Qubit Suitable for Scalable Quantum Integrated Circuits." Physical Review Letters 111(8): 080502.
+
+Proposal and experimental article of Xmon.
+
+#### Conclusion
+- energy coherence time in excess of 40 us
+- fast controlled Z gate in 25 ns
+- decoherence mechanism: a sparse bath of weakly coupled defects, giving rise to freq-dependent variations in lifetime, make qubits on the same chi having different T1 time
+- energy relaxation time increases with capacitance width, because loss depends on participation ratio
+
+#### Parameters
+- resonator Q ~ 1e6, MBE Al on oxygen-cleaned sapphire
+- upper limit of T1 from XY control: 60aF, 0.3 ms, and from Z control: 2.2 pH, 30 ms
+- Ramsey T2 = 15 us, spin echo T2 = 20 us
+- single-shot readout fidelity 70~85%
+- readout resonator 6.5 GHz, loaded Q = 1e4, g = 40 MHz
+
+#### Setup
+- multistage infrared shielding
+- nonmagnetic MW connectors
+
+
+#### Unclear & to read
+- dispersive, high-power single-shit readout
+- time-resolved spectroscopy (swap spectroscopy)
+- read supplemental material about decoherence simulation
+
+
+### Implementing a strand of a scalable fault-tolerant quantum computing fabric
+
+#### Parameters
+
+- T1: 24, 29, 20 us
+- T2: 32, 25, 18 us
+- $\chi/\pi$: -2.0, -2.0, -2.3 MHz
+- readout resonator $\kappa/2\pi$: 443, 976, 793 kHz
+- anharmoonicities ~ -340 MHz
+- coupling strengths $g/2\pi$: 70, 67, 67 MHz
+
+#### Unclear
+- random benchmarking
+- gate calibration
+- readout and tomography 
+
+
 ### Scalable ion-photon quantum interface based on integrated diffractive mirrors
 
 [npj quantum information](http://www.nature.com/articles/s41534-017-0006-6)
