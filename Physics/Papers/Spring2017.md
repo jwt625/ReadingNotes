@@ -28,7 +28,9 @@
 
 ```dot-parse
 digraph G {
-	graph[rankdir="LR";
+	graph[
+		rankdir="LR";
+		ranksep=3;
 		bgcolor="black";];
 
 	edge[color="white";fontcolor="white";];
@@ -39,6 +41,7 @@ digraph G {
 		color = white;fontcolor="white";
 		label="design";
 
+		Majer2007[label="Majer2007, Coupling superconducting qubits via a cavity bus"]
 		Barends2013[label="Barends2013, Coherent Josephson Qubit Suitable for Scalable Quantum Integrated Circuits"]		
 	}
 
@@ -135,11 +138,56 @@ digraph G {
 	DiCarlo2010->Filipp2009[label="joint readout"]
 	DiCarlo2010->Strauch2003[label="C-Phase gate"]
 
+	DiCarlo2009->Filipp2009[label="joint dispersive readout"]
+	DiCarlo2009->Majer2007[label="joint dispersive readout"]
+
 	Schreier2008->Schuster2005[label="spectroscopy"]
 
 }
 ```
 
+
+### Preparation and measurement of three-qubit entanglement in a superconducting circuit
+
+DiCarlo, L., et al. (2010). "Preparation and measurement of three-qubit entanglement in a superconducting circuit." Nature 467(7315): 574-578.
+
+#### parameters
+- x & y rotations in 8ns
+- spectrum free of spurious anti-crossings, critical requirement for pulsed qubit freq change
+- T1 ~ 1 us, T2* ~ 0.5 us
+- cavity linewidth $\kappa$=2.4MHz
+- GHZ state fidelity 88%
+
+#### Methods
+- obtain flux-voltage relation including cross-talk and offsets. Cross-talk corrected by orthogonalization (inverting the relation matrix)
+- expand three-qubit density matrix in Pauli operator basis
+- use Mermin sums and Mermin products to characterize entanglement for all reative phase of the GHZ-like state
+- not loop-hole free
+
+
+#### Unclear & to read
+- entanglement generation gates
+- high fidelity joint readout
+
+
+
+
+
+
+### Controlling the Spontaneous Emission of a Superconducting Transmon Qubit
+
+Houck, A. A., et al. (2008). "Controlling the Spontaneous Emission of a Superconducting Transmon Qubit." Physical Review Letters 101(8): 080502.
+
+
+#### Conclusion
+- equations not explicitly shown, needs to be found in refs
+- classical circuit model
+- quantum model under development
+- see Fig3 for main results and comparison with experiment
+	- T1 depends on detuning, i.e., Purcell effect
+	- give more accurate results comparing to single mode model
+- qubit T1 depends on the position
+- all T1 has an intrinsic limit on Q about 70000 
 
 
 ### Coherent Josephson Qubit Suitable for Scalable Quantum Integrated Circuits
@@ -167,12 +215,14 @@ Proposal and experimental article of Xmon.
 
 
 #### Unclear & to read
-- dispersive, high-power single-shit readout
+- dispersive, high-power single-shot readout
 - time-resolved spectroscopy (swap spectroscopy)
 - read supplemental material about decoherence simulation
 
 
 ### Implementing a strand of a scalable fault-tolerant quantum computing fabric
+
+Chow, J. M., et al. (2014). "Implementing a strand of a scalable fault-tolerant quantum computing fabric." Nat Commun 5: 4015.
 
 #### Parameters
 
