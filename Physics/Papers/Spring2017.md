@@ -42,6 +42,7 @@ digraph G {
 		label="design";
 
 		Majer2007[label="Majer2007, Coupling superconducting qubits via a cavity bus"]
+		Koch2007[label="Koch2007, Charge-insensitive qubit design derived from the Cooper pair box"]
 		Barends2013[label="Barends2013, Coherent Josephson Qubit Suitable for Scalable Quantum Integrated Circuits"]		
 	}
 
@@ -64,6 +65,7 @@ digraph G {
 		Barends2011[label="Barends2011, Minimizing quasiparticle generation from stray infrared light in superconducting quantum circuits"]
 		Barends2010[label="Barends2010, Minimal resonator loss for circuit quantum electrodynamics"]
 		Megrant2012[label="Megrant2012, Planar superconducting resonators with internal quality factors above one million"]
+		Chen2014[label="Chen2014, Fabrication and characterization of aluminum airbridges for superconducting microwave circuits"]
 
 	}
 
@@ -72,6 +74,7 @@ digraph G {
 		label="Theory & Simulation";
 
 		Strauch2003[label="Strauch2003, Quantum Logic Gates for Coupled Superconducting Phase Qubits"]
+		Martinis2005[label="Martinis2005, Decoherence in Josephson Qubits from Dielectric Loss"]
 		Wenner2011[label="Wenner2011, Surface loss simulations of superconducting coplanar waveguide resonators"]
 
 	}
@@ -104,14 +107,17 @@ digraph G {
 	subgraph cluster_readout {
 		
 		color = white;fontcolor="white";
-		label="readout, tomography, signal processing";
+		label="readout, tomography, signal & data processing";
 
 		Schuster2005[label="Schuster2005, ac Stark shift and dephasing of a superconducting qubit strongly coupled to a cavity field"]
 		Filipp2009[label="Filipp2009, Two-Qubit State Tomography Using a Joint Dispersive Readout"]
 		Reed2010[label="Reed2010, High-Fidelity Readout in Circuit Quantum Electrodynamics Using the Jaynes-Cummings Nonlinearity"]
 		Ryan2015[label="Ryan2015, Tomography via correlation of noisy measurement records"]
+		Khalil2012[label="Khalil2012, An analysis method for asymmetric resonator transmission applied to superconducting devices"]
 
 	}
+
+
 
 
 
@@ -130,6 +136,7 @@ digraph G {
 	Barends2013->Wenner2011[label="Loss simulation"]
 	Barends2013->Chow2012[label="T1 vary between qubits even on the same chip"]
 	Barends2013->Megrant2012[label="high Q resonator by MBE Al on oxygen-cleaned sapphire"]
+	Barends2013->Martinis2005[label="TLS defects distribution"]
 
 	DiCarlo2010->Schreier2008[label="transmon qubit"]
 	DiCarlo2010->Houck2008[label="isolation from EM environment"]
@@ -145,6 +152,44 @@ digraph G {
 
 }
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Fabrication and characterization of aluminum airbridges for superconducting microwave circuits
+
+Chen, Z., et al. (2014). "Fabrication and characterization of aluminum airbridges for superconducting microwave circuits." Applied Physics Letters 104(5): 052602.
+
+To avoid slotline modes. Additional loss at single photon levels is small and decreases at higher drive powers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### Preparation and measurement of three-qubit entanglement in a superconducting circuit
@@ -218,6 +263,31 @@ Proposal and experimental article of Xmon.
 - dispersive, high-power single-shot readout
 - time-resolved spectroscopy (swap spectroscopy)
 - read supplemental material about decoherence simulation
+
+
+
+#### Supplementary materials
+- junction age very little
+- Z pulse shape measurement: vary $Z_{amp}$ and $\Delta Z$ and apply $X_{\pi}$ at the same time. Excite state occupation well described by truncated Gaussian. Conclusion: qubit frequency can be tuned on a timescale of nanoseconds.
+- analytic results for loss from one TLS defect, using master equation with Markovian decoherence Lindblad terms:
+
+<p>
+$$
+\Gamma_1 = \frac{2g^2 \Gamma }{\Gamma^2 + \Delta^2} + \Gamma_{1,Q}
+$$
+</p>
+
+- Monte Carlo simulation of defects, randomly place defects inside 3nm thick interfaces, obtained spacial distribution of defects with large coupling, obtained $\Gamma_1$ versus frequency.
+
+
+
+
+
+
+
+
+
+
 
 
 ### Implementing a strand of a scalable fault-tolerant quantum computing fabric

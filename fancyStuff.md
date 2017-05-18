@@ -34,6 +34,15 @@
 - [iTex2Img](http://www.sciweavers.org/free-online-latex-equation-editor): convert TeX to Img
 - [Github with Mathjax](https://chrome.google.com/webstore/detail/github-with-mathjax/ioemnmodlmafdkllaclgeombjnmnbima/related): A very nice Chrome plugin to display TeX math in github .md file on web page
 
+#### Tutorials
+
+- [RF wireless world](http://www.rfwireless-world.com/)
+
+#### Plotting & generating Figure
+
+- [high charts](https://www.highcharts.com/)
+- [graphviz](http://www.graphviz.org/)
+- [Plotly](https://plot.ly/api/)
 
 #### Mathematica
 
