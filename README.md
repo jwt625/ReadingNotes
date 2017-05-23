@@ -39,9 +39,10 @@ Planned:
 * Matthew D. Schwartz, Quantum Field Theory and the Standard Model
 * Peter Y. Yu & Manuel Cardona, Fundamentals of Semiconductors
 
-## Note
+## Notes
 
-Oct 2016: started using Markdown. Conversion to HTML using [WPLT](https://github.com/jwt625/WPLT).
+Oct 2016: Using Markdown. Conversion to HTML using [WPLT](https://github.com/jwt625/WPLT).
+May 2017: Syncing blogs written with StackEdit.
 
 TeX template from [CareF](https://github.com/CareF) and [REVTeX](https://journals.aps.org/revtex).
 
