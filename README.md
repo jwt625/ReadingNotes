@@ -41,8 +41,8 @@ Planned:
 
 ## Notes
 
-Oct 2016: Using Markdown. Conversion to HTML using [WPLT](https://github.com/jwt625/WPLT).
-May 2017: Syncing blogs written with StackEdit.
+- Oct 2016: Using Markdown. Conversion to HTML using [WPLT](https://github.com/jwt625/WPLT).
+- May 2017: Syncing blogs written with StackEdit.
 
 TeX template from [CareF](https://github.com/CareF) and [REVTeX](https://journals.aps.org/revtex).
 
