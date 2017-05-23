@@ -165,6 +165,107 @@ digraph G {
 
 
 
+### UCSB final report for the CSQ program: Review of decoherence and materials physics for superconducting qubits
+
+- [source1](http://web.physics.ucsb.edu/~martinisgroup/papers/Martinis2014c.pdf)
+- [source2](https://arxiv.org/abs/1410.5793)
+
+
+Sources of decoherence:
+- capacitor loss: avoiding lossy dielectrics as much as possible
+	- TLS， characterized by loss angle
+	- abaondoned low loss parallel plate capacitor project
+	- recommend $Q_i/Q_c \sim 2$ for reliability (can be as high as 10)
+	- aggressive ion-milling of the substrate before Al deposition produces an amorphous layer at the interface, increasing loss by about a factor of 2
+	- cleaning the sapphire substrate with a high temperature anneal gave lower resonator loss.
+	- patterning the Al layers via liftoff, common in many qubit groups, likely produces additional loss due to ebeam resist residue
+	- T1 vary wrt frequency might because of each TLS being coupled to nearby TLS through the crystal strain field, which effectively turns on and off individual fuctuators.
+	- For small junctions less than about 10 um^2, the number of defects are few enough so that they are mostly statistically avoided, giving the capacitor no loss.
+	- what's sa-Si:H?
+
+- inductor and junction loss
+	- that resonator Q measurements were unreliable once we started looking at devices at the Q = 300,000 level. Measurements became reliable by removing loss from trapped vortices and quasiparticles
+	- incorporate mu-metal shields around our dilution refrigerator and device mounts to reduce the magnetic field to less than about 1mG. Additionally, we use non-magnetic screws and SMA connectors for parts inside the shield, and have a dedicated test setup for screening.
+	- possible to relax the requirements for magnetic shielding by placing holes in the ground plane. The stray fields are then trapped in the hole, eliminating the normal core and its dissipation.
+	- TLS loss does not increase with the use of holes. By doing so the resonators become insensitive to stray fields up to about the 50mG
+	- quasiparticle dissipation should vanish for a junction phase difference of pi, which has been beautifully confirmed with a fluxonium experiment.
+	- that nonequilibrium quasiparticles can excite qubits above their normal thermodynamic value
+	- use resonator to test because quasiparticle decrease Q. Found source to be infrared radiation.
+	- use multiple layers of shielding and absorbers, not relying on one good joint.
+	- some members of the superconducting qubit community that transmons should be isolated from the ground plane, in a non-galvanically coupled manner presumably to break diffusion. With good performance of the Xmon, this idea does not seem to be important.
+	- TiN: can obtain high Q, but easy to incorporate oxygen after venting from growth chamber. High kinetic inductance.
+	- a key requirement now for multiplexed readout is the ability to reproduce resonant frequencies to within about 1 MHz (?)
+
+- Radiation and wiring loss
+	- a new way to calculate loss
+	- proper design of the ground plane is critically important: chip wiring breaks the global connectivity of the ground plane, creating slotline modes that can be easily coupled to, so as to provide additional radiating modes.
+	- adding a 500MHz low-pass filter on the Z line completely removed the hot modes (equilibrium excitation of qubits greater than 30%).
+	- adding SiO2 crossovers and using a more symmetrically designed bias line
+	- bonding wires are long and their impedance is roughly 20-30 ohms at 6 GHz, these are not a very good shorts for the ground plane.
+	- a better way to calculate capacitance, see [arXiv:1410.3458](https://arxiv.org/abs/1410.3458)
+	- Z control crosstalk in the 5 qubit device to be typically below about 2%
+	- In a later 9-qubit chip, the centerline width and gap were respectively reduced from 4 um and 2 um to 3 um and 1.5 um while increasing line separation from 150 um to 200 um, which decreased the crosstalk to about 0.1% to 1%.
+	- Microwave crosstalk is still high, around -6 to -10 dB.
+	- added microwave absorbers inside the mount box.
+
+- gate fidelity
+	- Randomized benchmarking is good
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Wirebond crosstalk and cavity modes in large chip mounts for superconducting qubits
+
+Supercond. Sci. Technol. 24 (2011) 065001
+
+Wenner2011
+
+
+- circuit model for wirebond crosstalk
+- ground plate has inductance and capacitance between sample box
+- wirebond: inductance
+- in total: resonance frequency $f_{res}\approx 1/2\pi \sqrt{L_w C}$ 
+- measurement agree with model
+- using COMSOL to simulate L & C for realistic device
+- narrow superconducting stripes' critical field is orders of magnitude smaller than in the bulk
+
+Conclusions:
+- stray transmission falls off at low frequencies with increasing
+wirebond density
+- reaches near unity at a resonance frequency determined by the wirebond length and the stray capacitance between the chip and mount grounds
+- to improve the mount, it is necessary to use a high density of short grounding wirebonds and to decrease stray capacitance by using a mount without a ground plane under the chip.
+- stray coupling reduced to about −65 dB at 6 GHz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
