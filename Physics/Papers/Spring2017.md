@@ -273,11 +273,27 @@ wirebond density
 
 Chen, Z., et al. (2014). "Fabrication and characterization of aluminum airbridges for superconducting microwave circuits." Applied Physics Letters 104(5): 052602.
 
-To avoid slotline modes. Additional loss at single photon levels is small and decreases at higher drive powers.
+To avoid slotline modes.
 
+Additional loss at single photon levels is small and decreases at higher drive powers.
 
+10 airbridge per mm attenuate slotline mode to -150dB
 
+#### Fabrication process
+- first layer
+- height of bridge set by resist thickness (3um)
+- choose developer (AZ Dev 1:1) to minimize first layer (Al) etching
+- reflow resist at 140 deg C for 3 min to form arch
+- ion milling 3.5 min in 1e-4 mbar argon, Vbeam = 400V, Ibeam = 21mA, beam width 3.2in
+- E beam deposite 300 nm Al
+- second layer 3um resist
+- wet etch at 30 deg C, termination by visual inspection, immerse in water for 3 min
+- strip both layer in 80 deg C Microposit 1165 photoresist stripper
 
+#### characterization
+- resistance
+- loss added of resonator with/without air bridge and not seen the process
+- 
 
 
 
