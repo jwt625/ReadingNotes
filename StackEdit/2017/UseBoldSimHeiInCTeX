@@ -5,7 +5,7 @@
 
 Tsinghua requires the subtitle of undergrad thesis to be in Bold SimHei, but in the current version of [THUThesis](https://github.com/xueruini/thuthesis) template it's SimHei, not Bold SimHei (might be fixed when you read this).
 
-The easiest way to do it is to make the cover in Word, convert it to pdf and replace the old cover. I don't want to do it in this way because I can't learn anything through it.
+The easiest way to do this is to make the cover in Word, convert it to pdf and replace the old cover. I don't want to do it in this way because I can't learn anything through it.
 
 Firstly I have to find out where THUThesis defines and describes the cover, etc.
 
