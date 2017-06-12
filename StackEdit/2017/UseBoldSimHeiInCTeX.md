@@ -26,7 +26,7 @@ The problem is that SimHei we usually have on Windows is Zhongyi SimHei(中易�
 
 ![FontsInControlPanel](https://lh3.googleusercontent.com/DkuXjaxJ_4nC86DauMSYt4tpw8ALOzuGLIW7r-L8rVry7mJxI7JZ9kSwqnRfMQI8-cl_Amo=s700 "fontsInControlPanel.png")
 
-Next, I naively thought YaHei might look similar to SimHei so I include the YaHei font in `main.tex` by CTeX command `\newCJKfontfamily\msyh{Microsoft YaHei}` and use `\msyh\textbf` in `thuthesis.cls`, as on the line 521. The result didn't even make me satisfied, not to mention those 'tough' administrative stuff.
+Next, I naively thought YaHei might look similar to SimHei so I include the YaHei font in `main.tex` by CTeX command `\newCJKfontfamily\msyh{Microsoft YaHei}` and use `\msyh\textbf` in `thuthesis.cls`, as on the line 521. The result didn't even make me satisfied, not to mention those 'tough' administrative staff.
 
 The final solution I found is to create the Bold SimHei font by my self (actually partly bold to save time) and use it. I called it SimHeiBoldTmp and included it in main.tex by `\newCJKfontfamily\htbd{SimHeiBoldTmp}`, hence the final changes in `thuthesis.cls` is as in figure 1 (note the `\textbf` command is not required since the font itself is bold. It's still an ugly solution since I haven't figure out the correct way to add a bold version subset to an existing font).
 
