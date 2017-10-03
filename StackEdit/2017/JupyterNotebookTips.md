@@ -39,7 +39,7 @@ Source:
 |Ctrl-m h|	show keyboard shortcuts
 
 
-### View documents and arguments of function:
+### View documentations and arguments of function:
 
 - Shift + Tab
 
