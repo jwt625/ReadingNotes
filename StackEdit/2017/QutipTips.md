@@ -12,4 +12,9 @@ On Linux:
 ## Usage
 
 
+## Resources
+
+- [qutip lectures](https://github.com/jrjohansson/qutip-lectures)
+- [qutip examples](http://nbviewer.jupyter.org/github/qutip/qutip-notebooks/tree/master/examples/)
+
 > Written with [StackEdit](https://stackedit.io/).
