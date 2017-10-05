@@ -1,7 +1,7 @@
 [toc]
 
 
-# Shortcuts
+## Shortcuts
 
 Source: 
 
@@ -42,5 +42,10 @@ Source:
 ### View documentations and arguments of function:
 
 - Shift + Tab
+
+## PDF output requirements
+
+- [pandoc](http://pandoc.org/)
+- xelatex. E.g.: `sudo apt-get install texlive-xetex`
 
 > Written with [StackEdit](https://stackedit.io/).
