@@ -38,6 +38,7 @@ Planned:
 
 * Matthew D. Schwartz, Quantum Field Theory and the Standard Model
 * Peter Y. Yu & Manuel Cardona, Fundamentals of Semiconductors
+* Albrecht Bertram and Rainer Glüge, Solid Mechanics
 
 ## Notes
 
